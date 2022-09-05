@@ -1,3 +1,6 @@
+# Adding setup file for backward compatability if needed
+# Will be removed in future versions
+
 from setuptools import setup, find_packages
 
 classifiers = [
