@@ -4,7 +4,7 @@ class InvalidTokenException(Exception):
         super().__init__(self.message)
 
     def __str__(self):
-        return f'{self.message}'
+        return f"{self.message}"
 
     def __repr__(self):
-        return f'{self.message}'
+        return f"{self.message}"

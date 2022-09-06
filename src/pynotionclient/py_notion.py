@@ -11,5 +11,4 @@ class PyNotion:
             # Raise error if token is not provided
             logger.error(message="Invalid API token provided", function_name=function_name, file_name="py_notion.py")
             raise InvalidTokenException
-        else:
-            logger.info(message="Successfully intialized PyNotion Client", function_name=function_name, file_name="py_notion.py")
+        logger.info(message="Successfully intialized PyNotion Client", function_name=function_name, file_name="py_notion.py")
