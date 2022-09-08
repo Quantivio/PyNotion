@@ -1,5 +1,10 @@
 from src.exceptions import InvalidTokenException
 from src.utils import logger
+from . import NotionComment
+from .block import NotionBlock
+from .database import NotionDatabase
+from .page import NotionPage
+from .user import NotionUser
 
 
 class PyNotion:
@@ -12,7 +17,17 @@ class PyNotion:
             logger.error(message="Invalid API token provided", function_name=function_name, file_name="py_notion.py")
             raise InvalidTokenException
         logger.info(message="Successfully intialized PyNotion Client", function_name=function_name, file_name="py_notion.py")
+        self.database: NotionDatabase
+        self.page: NotionPage
+        self.block: NotionBlock
+        self.user: NotionUser
+        self.comment: NotionComment
+        self.__initialize_modules()
 
-    def sample(self) -> int:
-        print(self.token)
-        return "a"
+    def __initialize_modules(self):
+        # Initialize all the classes that correspond to different modules with secret token
+        self.database: NotionDatabase = NotionDatabase(token=self.token)
+        self.page: NotionPage = NotionPage(token=self.token)
+        self.block: NotionBlock = NotionBlock(token=self.token)
+        self.user: NotionUser = NotionUser(token=self.token)
+        self.comment: NotionComment = NotionComment(token=self.token)
