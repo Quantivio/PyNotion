@@ -1,4 +1,4 @@
-from config.constants import Constants
+from src.config.constants import Constants
 
 
 class Urls:

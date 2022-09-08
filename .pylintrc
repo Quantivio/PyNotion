@@ -621,3 +621,4 @@ variable-naming-style=snake_case
 
 
 string-quote=double
+triple-quote=triple

@@ -1,21 +1,22 @@
 from src.exceptions import InvalidTokenException
+from src.pynotionclient.block import NotionBlock
+from src.pynotionclient.comment import NotionComment
+from src.pynotionclient.database import NotionDatabase
+from src.pynotionclient.page import NotionPage
+from src.pynotionclient.user import NotionUser
 from src.utils import logger
-from . import NotionComment
-from .block import NotionBlock
-from .database import NotionDatabase
-from .page import NotionPage
-from .user import NotionUser
 
 
 class PyNotion:
     def __init__(self, token: str):
         function_name = "Intialize PyNotion Client"
-        # Initialize PyNotion client with SECRET_TOKEN or API_TOKEN from Notion
-        self.token: str = 1
-        if token is None or len(token) == 0:
+        # Initialize PyNotion client with SECRET_TOKEN or API_TOKEN from Notion. Default value is None
+        self.token: str | None = token
+        if self.token is None or len(self.token) == 0:
             # Raise error if token is not provided
             logger.error(message="Invalid API token provided", function_name=function_name, file_name="py_notion.py")
             raise InvalidTokenException
+
         logger.info(message="Successfully intialized PyNotion Client", function_name=function_name, file_name="py_notion.py")
         self.database: NotionDatabase
         self.page: NotionPage

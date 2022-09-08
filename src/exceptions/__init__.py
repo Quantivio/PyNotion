@@ -1,1 +1,1 @@
-from .pynotion_exceptions import InvalidTokenException
+from src.exceptions.pynotion_exceptions import InvalidTokenException
