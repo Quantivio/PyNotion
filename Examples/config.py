@@ -4,6 +4,7 @@ from pydantic import BaseSettings
 # Create configuration with pydantic BaseSettings https://pydantic-docs.helpmanual.io/usage/settings/.
 class Config(BaseSettings):
     notion_secret_token: str
+    database_id: str
 
     class Config:
         env_file = ".env"
