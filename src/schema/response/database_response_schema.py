@@ -1,4 +1,4 @@
-from typing import List, Any, Optional, Type
+from typing import List, Any, Type
 
 import pydantic
 from pydantic import create_model
@@ -8,34 +8,11 @@ from schema.response.date_schema import DateSchema
 from schema.response.multi_select_schema import MultiSelectSchema
 from schema.response.number_schema import NumberSchema
 from schema.response.person_schema import PersonSchema
+from schema.response.result_schema import ResultSchema
 from schema.response.rich_text_schema import RichTextSchema
 from schema.response.select_schema import SelectSchema
 from schema.response.status_schema import StatusSchema
 from schema.response.title_schema import TitleSchema
-
-
-class AuthoredBySchema(pydantic.BaseModel):
-    object: str
-    id: str
-
-
-class ParentSchema(pydantic.BaseModel):
-    type: str
-    database_id: Optional[str]
-
-
-class ResultSchema(pydantic.BaseModel):
-    object: str
-    id: str
-    created_time: str
-    last_edited_time: str
-    created_by: AuthoredBySchema
-    last_edited_by: AuthoredBySchema
-    cover: Optional[Any]
-    icon: Optional[Any]
-    parent: ParentSchema
-    properties: Any
-    archived: bool
 
 
 class NotionDatabaseResponseSchema(pydantic.BaseModel):
