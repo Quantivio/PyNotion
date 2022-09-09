@@ -1,0 +1,25 @@
+from typing import Optional
+
+import pydantic
+
+from schema.response.common_info_schema import IDSchema, IdTypeNameSchema
+from schema.response.person_schema import PersonEmailSchema
+
+
+class UserSchema(IdTypeNameSchema):
+    object: Optional[str]
+    avatar_url: Optional[str]
+    person: Optional[PersonEmailSchema]
+
+
+class DatabaseSchema(pydantic.BaseModel):
+    database: Optional[IDSchema]
+
+
+class PageSchema(pydantic.BaseModel):
+    page: Optional[IDSchema]
+
+
+# User, Page, Database mention schema
+class UPDMentionSchema(PageSchema, DatabaseSchema, UserSchema):
+    pass

@@ -3,8 +3,18 @@ from typing import List, Any, Optional, Type
 import pydantic
 from pydantic import create_model, Field
 
+from schema.response.check_box_schema import CheckboxSchema
+from schema.response.date_schema import DateSchema
+from schema.response.multi_select_schema import MultiSelectSchema
+from schema.response.number_schema import NumberSchema
+from schema.response.person_schema import PersonSchema
+from schema.response.rich_text_schema import RichTextSchema
+from schema.response.select_schema import SelectSchema
+from schema.response.status_schema import StatusSchema
+from schema.response.title_schema import TitleSchema
 
-class CreatedBySchema(pydantic.BaseModel):
+
+class AuthoredBySchema(pydantic.BaseModel):
     object: str
     id: str
 
@@ -14,155 +24,16 @@ class ParentSchema(pydantic.BaseModel):
     database_id: Optional[str]
 
 
-class InternalSelectSchema(pydantic.BaseModel):
-    id: str
-    name: str
-    color: str
-
-
-class SelectSchema(pydantic.BaseModel):
-    id: str
-    type: str
-    select: InternalSelectSchema
-
-
-class NumberSchema(pydantic.BaseModel):
-    id: str
-    type: str
-    number: int
-
-
-class PersonEmailSchema(pydantic.BaseModel):
-    email: str
-
-
-class PersonItemSchema(pydantic.BaseModel):
-    object: str
-    id: str
-    name: str
-    avatar_url: str
-    type: str
-    person: PersonEmailSchema
-
-
-class PersonSchema(pydantic.BaseModel):
-    id: str
-    type: str
-    people: List[PersonItemSchema]
-
-
-class CheckboxSchema(pydantic.BaseModel):
-    id: str
-    type: str
-    checkbox: bool
-
-
-class MultiSelectItemSchema(pydantic.BaseModel):
-    id: str
-    name: str
-    color: str
-
-
-class TagsSchema(pydantic.BaseModel):
-    id: str
-    type: str
-    multi_select: List[MultiSelectItemSchema]
-
-
-class InternalStatusSchema(pydantic.BaseModel):
-    id: str
-    name: str
-    color: str
-
-
-class StatusSchema(pydantic.BaseModel):
-    id: str
-    type: str
-    status: InternalStatusSchema
-
-
-class InternalDateSchema(pydantic.BaseModel):
-    start: str
-    end: Any
-    time_zone: Any
-
-
-class DateSchema(pydantic.BaseModel):
-    id: str
-    type: str
-    date: InternalDateSchema
-
-
-class TextSchema(pydantic.BaseModel):
-    content: str
-    link: Any
-
-
-class AnnotationsSchema(pydantic.BaseModel):
-    bold: bool
-    italic: bool
-    strikethrough: bool
-    underline: bool
-    code: bool
-    color: str
-
-
-class MentionSchema(pydantic.BaseModel):
-    type: str
-    database: Any
-
-
-class UserSchema(pydantic.BaseModel):
-    object: str
-    id: str
-    name: str
-    avatar_url: str
-    type: str
-    person: PersonEmailSchema
-
-
-class UserMentionSchema(pydantic.BaseModel):
-    type: str
-    user: UserSchema
-
-
-class TitleSchema(pydantic.BaseModel):
-    type: str
-    mention: UserMentionSchema
-
-
-class TitleItemSchema(pydantic.BaseModel):
-    type: str
-    text: Optional[TextSchema]
-    title: Optional[TitleSchema]
-    mention: Optional[MentionSchema]
-    annotations: AnnotationsSchema
-    plain_text: str
-    href: Any
-
-
-class TitleTypeSchema(pydantic.BaseModel):
-    id: str
-    type: str
-    title: List[TitleItemSchema]
-
-
-class TextContentSchema(pydantic.BaseModel):
-    id: str
-    type: str
-    rich_text: List[TitleItemSchema]
-
-
 class PropertiesSchema(pydantic.BaseModel):
     select: SelectSchema = Field(alias="Select", title="Select")
     number: NumberSchema = Field(alias="Number", title="Number")
     person: PersonSchema = Field(alias="Person", title="Person")
     checkbox: Optional[CheckboxSchema] = Field(alias="", title="")
-    tags: TagsSchema = Field(alias="Tags", title="Tags")
+    tags: MultiSelectSchema = Field(alias="Tags", title="Tags")
     status: StatusSchema = Field(alias="Status", title="Status")
     date: DateSchema = Field(alias="Date", title="Date")
-    name: TitleTypeSchema = Field(alias="Name", title="Name")
-    text: TextContentSchema = Field(alias="Text", title="Text")
+    name: TitleSchema = Field(alias="Name", title="Name")
+    text: RichTextSchema = Field(alias="Text", title="Text")
 
 
 class ResultSchema(pydantic.BaseModel):
@@ -170,8 +41,8 @@ class ResultSchema(pydantic.BaseModel):
     id: str
     created_time: str
     last_edited_time: str
-    created_by: CreatedBySchema
-    last_edited_by: CreatedBySchema
+    created_by: AuthoredBySchema
+    last_edited_by: AuthoredBySchema
     cover: Optional[Any]
     icon: Optional[Any]
     parent: ParentSchema
@@ -207,15 +78,15 @@ def generate_dynamic_properties_schema(properties_data: dict) -> Type[Properties
         elif value["type"] == "checkbox":
             properties_schema[key] = (CheckboxSchema, defaults.dict())
         elif value["type"] == "multi_select":
-            properties_schema[key] = (TagsSchema, defaults.dict())
+            properties_schema[key] = (MultiSelectSchema, defaults.dict())
         elif value["type"] == "status":
             properties_schema[key] = (StatusSchema, defaults.dict())
         elif value["type"] == "date":
             properties_schema[key] = (DateSchema, defaults.dict())
         elif value["type"] == "title":
-            properties_schema[key] = (TitleTypeSchema, defaults.dict())
+            properties_schema[key] = (TitleSchema, defaults.dict())
         elif value["type"] == "rich_text":
-            properties_schema[key] = (TextContentSchema, defaults.dict())
+            properties_schema[key] = (RichTextSchema, defaults.dict())
         else:
             raise ValueError(f"Unknown type: {value['type']}")
 
