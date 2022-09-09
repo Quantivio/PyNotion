@@ -1,6 +1,6 @@
 from typing import List
 
-from schema.response.ContentSchema import ContentSchema
+from schema.response.content_schema import ContentSchema
 from schema.response.common_info_schema import IdTypeSchema
 
 

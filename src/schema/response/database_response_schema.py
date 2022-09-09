@@ -1,7 +1,7 @@
 from typing import List, Any, Optional, Type
 
 import pydantic
-from pydantic import create_model, Field
+from pydantic import create_model
 
 from schema.response.check_box_schema import CheckboxSchema
 from schema.response.date_schema import DateSchema
@@ -24,18 +24,6 @@ class ParentSchema(pydantic.BaseModel):
     database_id: Optional[str]
 
 
-class PropertiesSchema(pydantic.BaseModel):
-    select: SelectSchema = Field(alias="Select", title="Select")
-    number: NumberSchema = Field(alias="Number", title="Number")
-    person: PersonSchema = Field(alias="Person", title="Person")
-    checkbox: Optional[CheckboxSchema] = Field(alias="", title="")
-    tags: MultiSelectSchema = Field(alias="Tags", title="Tags")
-    status: StatusSchema = Field(alias="Status", title="Status")
-    date: DateSchema = Field(alias="Date", title="Date")
-    name: TitleSchema = Field(alias="Name", title="Name")
-    text: RichTextSchema = Field(alias="Text", title="Text")
-
-
 class ResultSchema(pydantic.BaseModel):
     object: str
     id: str
@@ -46,8 +34,8 @@ class ResultSchema(pydantic.BaseModel):
     cover: Optional[Any]
     icon: Optional[Any]
     parent: ParentSchema
+    properties: Any
     archived: bool
-    properties: PropertiesSchema
 
 
 class NotionDatabaseResponseSchema(pydantic.BaseModel):
@@ -64,7 +52,7 @@ class DefaultSettingsSchema(pydantic.BaseModel):
     required: bool = True
 
 
-def generate_dynamic_properties_schema(properties_data: dict) -> Type[PropertiesSchema]:
+def generate_dynamic_properties_schema(properties_data: dict) -> Any:
     """Generate a dynamic schema model based on the keys recieved from Notions Response """
     properties_schema = {}
     for key, value in properties_data.items():
@@ -93,6 +81,11 @@ def generate_dynamic_properties_schema(properties_data: dict) -> Type[Properties
     return create_model("PropertiesSchema", **properties_schema)
 
 
-def generate_dynamic_result_schema(properties_schema: Type[PropertiesSchema]):
+def generate_dynamic_result_schema(properties_schema: Any) -> Type[ResultSchema]:
     defaults = DefaultSettingsSchema(alias="properties", title="properties")
-    return create_model("NotionDatabaseResponseSchema", __base__=NotionDatabaseResponseSchema, properties=(properties_schema, defaults.dict()))
+    return create_model("NotionDatabaseResponseSchema", __base__=ResultSchema, properties=(properties_schema, defaults.dict()))
+
+
+def generate_dynamic_notion_response_schema(result_schema: Any) -> Type[NotionDatabaseResponseSchema]:
+    defaults = DefaultSettingsSchema(alias="results", title="results")
+    return create_model("NotionDatabaseResponseSchema", __base__=NotionDatabaseResponseSchema, results=(List[result_schema], defaults.dict()))

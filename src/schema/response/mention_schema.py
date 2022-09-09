@@ -2,11 +2,13 @@ from typing import Optional
 
 import pydantic
 
-from schema.response.common_info_schema import IDSchema, IdTypeNameSchema
+from schema.response.common_info_schema import IDSchema
 from schema.response.person_schema import PersonEmailSchema
 
 
-class UserSchema(IdTypeNameSchema):
+class UserSchema(pydantic.BaseModel):
+    id: Optional[str]
+    name: Optional[str]
     object: Optional[str]
     avatar_url: Optional[str]
     person: Optional[PersonEmailSchema]
