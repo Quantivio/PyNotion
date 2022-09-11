@@ -13,12 +13,12 @@ class ColoredFormatter(logging.Formatter):
         super().__init__()
         self.fmt = fmt
         self.formats = {
-                # logging.DEBUG: self.grey + self.fmt + self.reset,
-                logging.INFO:     self.blue + self.fmt + self.reset,
-                logging.WARNING:  self.yellow + self.fmt + self.reset,
-                logging.ERROR:    self.red + self.fmt + self.reset,
-                logging.CRITICAL: self.bold_red + self.fmt + self.reset
-                }
+            # logging.DEBUG: self.grey + self.fmt + self.reset,
+            logging.INFO: self.blue + self.fmt + self.reset,
+            logging.WARNING: self.yellow + self.fmt + self.reset,
+            logging.ERROR: self.red + self.fmt + self.reset,
+            logging.CRITICAL: self.bold_red + self.fmt + self.reset,
+        }
 
     def format(self, record):
         log_format = self.formats.get(record.levelno)
@@ -29,8 +29,7 @@ class ColoredFormatter(logging.Formatter):
 class CustomLogger:
     def __init__(self):
         stdout_handler = logging.StreamHandler()
-        stdout_handler.setFormatter(
-                ColoredFormatter("%(levelname)s | %(asctime)s | %(message)s"))
+        stdout_handler.setFormatter(ColoredFormatter("%(levelname)s | %(asctime)s | %(message)s"))
         self.custom_logger = logging.getLogger(__name__)
         self.custom_logger.setLevel(logging.INFO)
         self.custom_logger.addHandler(stdout_handler)
@@ -45,12 +44,10 @@ class CustomLogger:
         self.custom_logger.warning("FileName: %s | FunctionName: %s | Message: %s", file_name, function_name, message)
 
     def error(self, message: str, function_name: str, file_name: str):
-        self.custom_logger.error("FileName: %s | FunctionName: %s | Message: %s", file_name, function_name, message,
-                                 exc_info=True)
+        self.custom_logger.error("FileName: %s | FunctionName: %s | Message: %s", file_name, function_name, message, exc_info=True)
 
     def critical(self, message: str, function_name: str, file_name: str):
-        self.custom_logger.critical("FileName: %s | FunctionName: %s | Message: %s", file_name, function_name, message,
-                                    exc_info=True)
+        self.custom_logger.critical("FileName: %s | FunctionName: %s | Message: %s", file_name, function_name, message, exc_info=True)
 
 
 logger = CustomLogger()

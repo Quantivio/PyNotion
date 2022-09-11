@@ -1,5 +1,3 @@
-from typing import Optional
-
 from schema.request.Database.common_filter_schema import EqualsFilter, EmptyFilter, ContainsFilter
 
 
@@ -31,4 +29,4 @@ class RelationFilter(ContainsFilter, EmptyFilter):
     pass
 
 
-
+# TODO: Add Rollup and Formula filters

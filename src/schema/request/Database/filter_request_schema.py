@@ -5,7 +5,14 @@ from pydantic import Field
 
 from .date_filter_schema import DateFilter
 from .number_filter_schema import NumberFilter
-from .other_filters_schema import CheckboxFilter, SelectFilter, MultiSelectFilter, PeopleFilter, FileFilter, RelationFilter
+from .other_filters_schema import (
+    CheckboxFilter,
+    SelectFilter,
+    MultiSelectFilter,
+    PeopleFilter,
+    FileFilter,
+    RelationFilter,
+    )
 from .rich_text_filter_schema import RichTextFilter
 from .time_stamp_filter_schema import TimeStampFilter
 
@@ -20,17 +27,23 @@ class PropertyFilter(pydantic.BaseModel):
     date: Optional[DateFilter]
     people: Optional[PeopleFilter]
     file: Optional[FileFilter]
-    realtion: Optional[RelationFilter]
+    relation: Optional[RelationFilter]
 
 
 class CompoundFilterOR(pydantic.BaseModel):
-    or_filter: Optional[List[PropertyFilter]] = Field(alias="or", title="or",
-                                                      description="OR compound logical filter operator to pass multiple filter as list")
+    or_filter: Optional[List[PropertyFilter]] = Field(
+        alias="or",
+        title="or",
+        description="OR compound logical filter operator to pass multiple filter as list",
+    )
 
 
 class CompoundFilterAND(pydantic.BaseModel):
-    and_filter: Optional[List[PropertyFilter]] = Field(alias="and", title="and",
-                                                       description="AND compound logical filter operator to pass multiple filter as list")
+    and_filter: Optional[List[PropertyFilter]] = Field(
+        alias="and",
+        title="and",
+        description="AND compound logical filter operator to pass multiple filter as list",
+    )
 
 
 class Filter(pydantic.BaseModel):

@@ -30,7 +30,7 @@ class DefaultSettingsSchema(pydantic.BaseModel):
 
 
 def generate_dynamic_properties_schema(properties_data: dict) -> Any:
-    """Generate a dynamic schema model based on the keys recieved from Notions Response """
+    """Generate a dynamic schema model based on the keys recieved from Notions Response"""
     properties_schema = {}
     for key, value in properties_data.items():
         defaults = DefaultSettingsSchema(alias=key, title=key)
