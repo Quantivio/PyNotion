@@ -12,7 +12,7 @@ from .other_filters_schema import (
     PeopleFilter,
     FileFilter,
     RelationFilter,
-    )
+)
 from .rich_text_filter_schema import RichTextFilter
 from .time_stamp_filter_schema import TimeStampFilter
 
