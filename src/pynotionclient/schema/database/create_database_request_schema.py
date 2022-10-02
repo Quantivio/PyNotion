@@ -1,6 +1,8 @@
-from typing import Any
+from typing import Any, List
 
 import pydantic
+
+from src.pynotionclient.schema import RichTextSchema
 
 
 class ParentSchema(pydantic.BaseModel):
@@ -27,14 +29,9 @@ class TextSchema(pydantic.BaseModel):
     link: pydantic.AnyUrl
 
 
-class TitleSchema(pydantic.BaseModel):
-    type: str
-    text: TextSchema
-
-
 class CreateDatabaseRequestSchema(pydantic.BaseModel):
     parent: ParentSchema
-    title: TitleSchema
+    title: List[RichTextSchema]
     icon: IconsSchema
     cover: CoverSchema
     properties: Any

@@ -20,6 +20,10 @@
 ## Usage
 
 ```python
+from pynotionclient import PyNotion
+from examples.config import base_config
+from pynotionclient.schema import RichTextFilter, PropertyFilter, Filter, NotionDatabaseResponseSchema
+
 py_notion_client = PyNotion(token=base_config.notion_secret_token)
 
 # Create necessary properties as dictionary
@@ -44,6 +48,9 @@ response_filter_payload: NotionDatabaseResponseSchema = py_notion_client.databas
 #### 1. Querying a database using a dictionary
 
 ```python
+from pynotionclient import PyNotion
+from examples.config import base_config
+from pynotionclient.schema import NotionDatabaseResponseSchema
 py_notion_client = PyNotion(token=base_config.notion_secret_token)
 
 # Create necessary properties as dictionary
@@ -56,6 +63,9 @@ response_dict_payload: NotionDatabaseResponseSchema = py_notion_client.database.
 #### 2. Querying a database using a Pydantic model
 
 ```python
+from pynotionclient import PyNotion
+from examples.config import base_config
+from pynotionclient.schema import RichTextFilter, PropertyFilter, Filter, NotionDatabaseResponseSchema
 py_notion_client = PyNotion(token=base_config.notion_secret_token)
 
 # Create necessary filter objects from Pydantic models and use them to query the database.
@@ -65,7 +75,7 @@ property_filter = PropertyFilter(property="Name", rich_text=rich_text_filter)
 filter_object = Filter(page_size=100, filter=property_filter)
 
 response_filter_payload: NotionDatabaseResponseSchema = py_notion_client.database.query_database(
-        database_id=base_config.database_id, payload=filter_object
+        database_id=base_config.database_id, payload=filter_object)
 ```
 
 #### Response for querying a database

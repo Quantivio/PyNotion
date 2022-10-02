@@ -1,6 +1,6 @@
 from typing import Optional
 
-from schema.request.Database.common_filter_schema import EqualsFilter, EmptyFilter
+from src.pynotionclient.schema import EqualsFilter, EmptyFilter
 
 
 class NumberFilter(EqualsFilter, EmptyFilter):

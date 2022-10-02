@@ -2,8 +2,7 @@ from typing import Optional
 
 import pydantic
 
-from schema.response.common_info_schema import IDSchema
-from schema.response.person_schema import PersonEmailSchema
+from src.pynotionclient.schema import IDSchema, PersonEmailSchema
 
 
 class UserSchema(pydantic.BaseModel):
@@ -22,6 +21,6 @@ class PageSchema(pydantic.BaseModel):
     page: Optional[IDSchema]
 
 
-# User, Page, Database mention schema
+# User, Page, database mention schema
 class UPDMentionSchema(PageSchema, DatabaseSchema, UserSchema):
     pass

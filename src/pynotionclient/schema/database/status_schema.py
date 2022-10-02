@@ -1,4 +1,4 @@
-from schema.response.common_info_schema import IdTypeSchema, IdNameSchema
+from src.pynotionclient.schema import IdNameSchema, IdTypeSchema
 
 
 class InternalStatusSchema(IdNameSchema):

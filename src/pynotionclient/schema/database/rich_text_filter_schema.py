@@ -1,10 +1,6 @@
 from typing import Optional
 
-from schema.request.Database.common_filter_schema import (
-    ContainsFilter,
-    EqualsFilter,
-    EmptyFilter,
-    )
+from src.pynotionclient.schema import ContainsFilter, EqualsFilter, EmptyFilter
 
 
 class RichTextFilter(ContainsFilter, EqualsFilter, EmptyFilter):
