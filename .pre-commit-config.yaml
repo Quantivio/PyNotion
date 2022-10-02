@@ -1,0 +1,20 @@
+repos:
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [ python ]
+        args: [
+          "--rcfile=.pylintrc",
+        ]
+  - repo: https://github.com/psf/black
+    rev: 22.8.0
+    hooks:
+      - id: black
+        name: black
+        entry: black
+        description: "Black: The uncompromising code formatter."
+        language: python
+        language_version: python3.10.5
