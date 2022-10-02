@@ -14,7 +14,7 @@
 
 Simple to use and easy to understand API wrapper for Notion.so Curently in development and 
 supports the following features:
-1. Create a new database (Work in progress can create datbase passing payload as a dictionary)
+1. Create a new database
 2. Get a database
 
 ## Installation
