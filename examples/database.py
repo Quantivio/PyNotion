@@ -26,5 +26,5 @@ response_filter_payload: NotionDatabaseResponseSchema = py_notion_client.databas
 # # Inside the properties use the key name you gave for each table in your database to access the value.
 # # For example: CustomizedSelect is the key name for the table named "CustomizedSelect" in my database.
 #
-print(response_dict_payload.results[0].properties.CustomizedSelect.json(indent=4))  # Print the first result's Select property as json.
-print(response_filter_payload.results[0].properties.CustomizedSelect.json(indent=4))  # Print the first result's Select property as json.
+print(response_dict_payload.results[0].properties.Name.json(indent=4))  # Print the first result's Select property as json.
+print(response_filter_payload.results[0].properties.Name.json(indent=4))  # Print the first result's Select property as json.

@@ -2,7 +2,7 @@ from typing import Any, List
 
 import pydantic
 
-from pynotionclient.schema.database import RichTextSchema
+from pynotionclient.schema.database.rich_text_schema import RichTextSchema
 
 
 class ParentSchema(pydantic.BaseModel):
