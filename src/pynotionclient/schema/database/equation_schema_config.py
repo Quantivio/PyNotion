@@ -3,5 +3,5 @@ from typing import Optional
 import pydantic
 
 
-class EquationSchema(pydantic.BaseModel):
+class EquationSchemaConfig(pydantic.BaseModel):
     expression: Optional[str]

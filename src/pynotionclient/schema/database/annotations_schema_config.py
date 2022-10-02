@@ -1,7 +1,7 @@
 import pydantic
 
 
-class AnnotationsSchema(pydantic.BaseModel):
+class AnnotationsSchemaConfig(pydantic.BaseModel):
     bold: bool
     italic: bool
     strikethrough: bool

@@ -12,20 +12,17 @@
 
 ### A Notion API wrapper for Python (In Development)
 
-> Simple to use and easy to understand API wrapper for Notion.so
->
->Curently in development and supports the following features:
-> 1. Create a new database (Work in progress can create datbase passing payload as a dictionary)
-> 2. Get a database
+Simple to use and easy to understand API wrapper for Notion.so Curently in development and 
+supports the following features:
+1. Create a new database (Work in progress can create datbase passing payload as a dictionary)
+2. Get a database
 
 ## Installation
-
 `poetry add pynotionclient`
 
 `pip install pynotionclient`
 
 ## Usage
-
 ```python
 from pynotionclient import PyNotion
 from examples.config import base_config

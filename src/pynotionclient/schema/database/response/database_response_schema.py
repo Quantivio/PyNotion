@@ -1,23 +1,24 @@
-from typing import List, Any, Type
+from typing import Any
 
 import pydantic
-from pydantic import create_model
 
-from pynotionclient.schema.database.check_box_schema import CheckboxSchema
-from pynotionclient.schema.database.date_schema import DateSchema
-from pynotionclient.schema.database.multi_select_schema import MultiSelectSchema
-from pynotionclient.schema.database.number_schema import NumberSchema
-from pynotionclient.schema.database.person_schema import PersonSchema
-from pynotionclient.schema.database.result_schema import ResultSchema
-from pynotionclient.schema.database.rich_text_schema import RichTextSchema
-from pynotionclient.schema.database.select_schema import SelectSchema
-from pynotionclient.schema.database.status_schema import StatusSchema
-from pynotionclient.schema.database.title_schema import TitleSchema
+from pynotionclient.schema.database.response.check_box_schema import CheckboxSchema
+from pynotionclient.schema.database.response.date_schema import DateSchema
+from pynotionclient.schema.database.response.multi_select_schema import (
+    MultiSelectSchema,
+)
+from pynotionclient.schema.database.response.number_schema import NumberSchema
+from pynotionclient.schema.database.response.person_schema import PersonSchema
+from pynotionclient.schema.database.response.result_schema import ResultSchema
+from pynotionclient.schema.database.response.rich_text_schema import RichTextSchema
+from pynotionclient.schema.database.response.select_schema import SelectSchema
+from pynotionclient.schema.database.response.status_schema import StatusSchema
+from pynotionclient.schema.database.response.title_schema import TitleSchema
 
 
 class NotionDatabaseResponseSchema(pydantic.BaseModel):
     object: str
-    results: List[ResultSchema]
+    results: list[ResultSchema]
     has_more: bool
     type: str
     page: Any
@@ -55,14 +56,24 @@ def generate_dynamic_properties_schema(properties_data: dict) -> Any:
         else:
             raise ValueError(f"Unknown type: {value['type']}")
 
-    return create_model("PropertiesSchema", **properties_schema)
+    return pydantic.create_model("PropertiesSchema", **properties_schema)
 
 
-def generate_dynamic_result_schema(properties_schema: Any) -> Type[ResultSchema]:
+def generate_dynamic_result_schema(properties_schema: Any) -> type[ResultSchema]:
     defaults = DefaultSettingsSchema(alias="properties", title="properties")
-    return create_model("NotionDatabaseResponseSchema", __base__=ResultSchema, properties=(properties_schema, defaults.dict()))
+    return pydantic.create_model(
+        "NotionDatabaseResponseSchema",
+        __base__=ResultSchema,
+        properties=(properties_schema, defaults.dict()),
+    )
 
 
-def generate_dynamic_notion_response_schema(result_schema: Any) -> Type[NotionDatabaseResponseSchema]:
+def generate_dynamic_notion_response_schema(
+    result_schema: Any,
+) -> type[NotionDatabaseResponseSchema]:
     defaults = DefaultSettingsSchema(alias="results", title="results")
-    return create_model("NotionDatabaseResponseSchema", __base__=NotionDatabaseResponseSchema, results=(List[result_schema], defaults.dict()))
+    return pydantic.create_model(
+        "NotionDatabaseResponseSchema",
+        __base__=NotionDatabaseResponseSchema,
+        results=(list[result_schema], defaults.dict()),
+    )

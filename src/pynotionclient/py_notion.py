@@ -1,7 +1,7 @@
-from pynotionclient.exceptions import InvalidTokenException
 from pynotionclient.block import NotionBlock
 from pynotionclient.comment import NotionComment
 from pynotionclient.database import NotionDatabase
+from pynotionclient.exceptions import InvalidTokenException
 from pynotionclient.page import NotionPage
 from pynotionclient.user import NotionUser
 from pynotionclient.utils import logger
@@ -14,10 +14,18 @@ class PyNotion:
         self.token: str | None = token
         if self.token is None or len(self.token) == 0:
             # Raise error if token is not provided
-            logger.error(message="Invalid API token provided", function_name=function_name, file_name="py_notion.py")
+            logger.error(
+                message="Invalid API token provided",
+                function_name=function_name,
+                file_name="py_notion.py",
+            )
             raise InvalidTokenException
 
-        logger.info(message="Successfully intialized PyNotion Client", function_name=function_name, file_name="py_notion.py")
+        logger.info(
+            message="Successfully intialized PyNotion Client",
+            function_name=function_name,
+            file_name="py_notion.py",
+        )
         self.database: NotionDatabase
         self.page: NotionPage
         self.block: NotionBlock

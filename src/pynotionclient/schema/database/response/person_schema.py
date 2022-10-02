@@ -1,8 +1,9 @@
-from typing import List
-
 import pydantic
 
-from pynotionclient.schema.database.common_info_schema import IdTypeNameSchema, IdTypeSchema
+from pynotionclient.schema.database.response.common_info_schema import (
+    IdTypeNameSchema,
+    IdTypeSchema,
+)
 
 
 class PersonEmailSchema(pydantic.BaseModel):
@@ -16,4 +17,4 @@ class PersonItemSchema(IdTypeNameSchema):
 
 
 class PersonSchema(IdTypeSchema):
-    people: List[PersonItemSchema]
+    people: list[PersonItemSchema]
