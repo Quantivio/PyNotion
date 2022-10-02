@@ -12,7 +12,8 @@
 
 ### A Notion API wrapper for Python (In Development)
 
-Simple to use and easy to understand API wrapper for Notion.so Curently in development and
+PyNotion is a simple-to-use and easy-to-understand API wrapper for [Notion.so](https://developers.notion.com/) Currently
+in development and
 supports the following features:
 
 1. Create a new database
