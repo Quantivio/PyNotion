@@ -22,6 +22,10 @@ class PageSchema(pydantic.BaseModel):
     page: Optional[IDSchema]
 
 
+class UserIDSchema(pydantic.BaseModel):
+    user: Optional[IDSchema]
+
+
 # User, Page, database mention schema
-class UPDMentionSchema(PageSchema, DatabaseSchema, UserSchema):
+class UPDMentionSchema(PageSchema, DatabaseSchema, UserSchema, UserIDSchema):
     pass

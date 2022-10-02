@@ -17,7 +17,7 @@ classifiers = [
 
 setup(
     name="PyNotion",
-    version="0.0.6",
+    version="0.0.7",
     description="Python wrapper for Notion API",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -27,7 +27,7 @@ setup(
     url="https://github.com/pythonhubpy/PyNotion",
     packages=find_packages(exclude=["tests"]),
     install_package_data=True,
-    install_requires=["requests", "pydantic", "python-dotenv", "pytest", "pytest-cov"],
+    install_requires=["requests", "pydantic"],
     classifiers=classifiers,
     python_requires=">=3.8",
 )

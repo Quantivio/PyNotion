@@ -1,8 +1,10 @@
 from typing import Optional, Any
 
 import pydantic
+from pydantic import validator
 
 from pynotionclient.schema.database.annotations_schema import AnnotationsSchema
+from pynotionclient.schema.database.equation_schema import EquationSchema
 from pynotionclient.schema.database.mention_schema import UPDMentionSchema
 
 
@@ -16,5 +18,11 @@ class ContentSchema(pydantic.BaseModel):
     text: Optional[TextSchema]
     mention: Optional[UPDMentionSchema]
     annotations: AnnotationsSchema
+    equation: Optional[EquationSchema]
     plain_text: str
     href: Any
+
+    @validator
+    def validate_type(cls, content_type):
+        if content_type not in ["text", "mention", "equation"]:
+            raise ValueError("Content type must be text, mention, or equation")

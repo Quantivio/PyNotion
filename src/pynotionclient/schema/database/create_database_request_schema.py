@@ -1,6 +1,7 @@
 from typing import Any, List
 
 import pydantic
+from pydantic import validator
 
 from pynotionclient.schema.database.rich_text_schema import RichTextSchema
 
@@ -13,6 +14,11 @@ class ParentSchema(pydantic.BaseModel):
 class IconsSchema(pydantic.BaseModel):
     type: str
     emoji: str
+
+    @validator
+    def validate_emoji_type(cls, emoji_type):
+        if emoji_type != "emoji":
+            raise ValueError("Emoji type must be emoji")
 
 
 class ExternalSchema(pydantic.BaseModel):

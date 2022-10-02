@@ -10,6 +10,7 @@ from pynotionclient.schema.database.database_response_schema import (
     generate_dynamic_properties_schema,
 )
 from pynotionclient.schema.database.date_filter_schema import DateFilter
+from pynotionclient.schema.database.equation_schema import EquationSchema
 from pynotionclient.schema.database.filter_request_schema import PropertyFilter, CompoundFilterOR, CompoundFilterAND, Filter
 from pynotionclient.schema.database.mention_schema import UPDMentionSchema
 from pynotionclient.schema.database.multi_select_schema import MultiSelectSchema
@@ -52,6 +53,7 @@ __all__ = [
     "RichTextSchema",
     "AnnotationsSchema",
     "UPDMentionSchema",
+    "EquationSchema",
     "Filter",
     "EmptyFilter",
     "RichTextFilter",
