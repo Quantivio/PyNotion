@@ -1,9 +1,9 @@
-from src.pynotionclient.block import NotionBlock
-from src.pynotionclient.comment import NotionComment
-from src.pynotionclient.database import NotionDatabase
-from src.pynotionclient.page import NotionPage
-from src.pynotionclient.py_notion import PyNotion
-from src.pynotionclient.user import NotionUser
+from pynotionclient.block import NotionBlock
+from pynotionclient.comment import NotionComment
+from pynotionclient.database import NotionDatabase
+from pynotionclient.page import NotionPage
+from pynotionclient.py_notion import PyNotion
+from pynotionclient.user import NotionUser
 
 __all__ = [
     "NotionBlock",

@@ -1,4 +1,4 @@
-from src.pynotionclient.schema.database import IdNameSchema, IdTypeSchema
+from pynotionclient.schema.database import IdNameSchema, IdTypeSchema
 
 
 class InternalSelectSchema(IdNameSchema):

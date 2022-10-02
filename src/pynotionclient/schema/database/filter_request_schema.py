@@ -3,9 +3,9 @@ from typing import Optional, List
 import pydantic
 from pydantic import Field
 
-from src.pynotionclient.schema.database import DateFilter
-from src.pynotionclient.schema.database import NumberFilter
-from src.pynotionclient.schema.database import (
+from pynotionclient.schema.database import DateFilter
+from pynotionclient.schema.database import NumberFilter
+from pynotionclient.schema.database import (
     CheckboxFilter,
     SelectFilter,
     MultiSelectFilter,
@@ -13,8 +13,8 @@ from src.pynotionclient.schema.database import (
     FileFilter,
     RelationFilter,
 )
-from src.pynotionclient.schema.database import RichTextFilter
-from src.pynotionclient.schema.database import TimeStampFilter
+from pynotionclient.schema.database import RichTextFilter
+from pynotionclient.schema.database import TimeStampFilter
 
 
 class PropertyFilter(pydantic.BaseModel):

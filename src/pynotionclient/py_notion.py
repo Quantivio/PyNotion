@@ -1,10 +1,10 @@
-from src.pynotionclient.exceptions import InvalidTokenException
-from src.pynotionclient.block import NotionBlock
-from src.pynotionclient.comment import NotionComment
-from src.pynotionclient.database import NotionDatabase
-from src.pynotionclient.page import NotionPage
-from src.pynotionclient.user import NotionUser
-from src.pynotionclient.utils import logger
+from pynotionclient.exceptions import InvalidTokenException
+from pynotionclient.block import NotionBlock
+from pynotionclient.comment import NotionComment
+from pynotionclient.database import NotionDatabase
+from pynotionclient.page import NotionPage
+from pynotionclient.user import NotionUser
+from pynotionclient.utils import logger
 
 
 class PyNotion:

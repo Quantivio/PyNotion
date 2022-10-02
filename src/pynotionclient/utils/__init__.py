@@ -1,1 +1,1 @@
-from src.pynotionclient.utils.logger import logger
+from pynotionclient.utils.logger import logger

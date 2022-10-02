@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pynotionclient"
-version = "0.0.2"
+version = "0.0.5"
 description = "Python wrapper for Notion API"
 authors = ["Vetrichelvan <pythonhub.py@gmail.com>"]
 license = "MIT"
@@ -17,9 +17,11 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.10.5"
+python = "^3.8"
 requests = "^2.28.1"
 pydantic = "^1.10.2"
+
+[tool.poetry.dev-dependencies]
 python-dotenv = "^0.21.0"
 pylint-quotes = "^0.2.3"
 pytest-cov = "^4.0.0"
@@ -28,8 +30,6 @@ pre-commit = "^2.20.0"
 pylint = "^2.15.3"
 mypy = "^0.981"
 black = {extras = ["d"], version = "^22.8.0"}
-
-[tool.poetry.dev-dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

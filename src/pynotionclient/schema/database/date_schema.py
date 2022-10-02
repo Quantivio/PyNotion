@@ -2,7 +2,7 @@ from typing import Any
 
 import pydantic
 
-from src.pynotionclient.schema.database import IdTypeSchema
+from pynotionclient.schema.database import IdTypeSchema
 
 
 class InternalDateSchema(pydantic.BaseModel):

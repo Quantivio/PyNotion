@@ -1,4 +1,4 @@
-from src.pynotionclient.config.constants import Constants
+from pynotionclient.config.constants import Constants
 
 
 class Urls:

@@ -3,11 +3,11 @@ from typing import List, Any, Type
 import pydantic
 from pydantic import create_model
 
-from src.pynotionclient.schema.database import NumberSchema, PersonSchema, CheckboxSchema, MultiSelectSchema, TitleSchema, RichTextSchema
-from src.pynotionclient.schema.database.date_schema import DateSchema
-from src.pynotionclient.schema.database.result_schema import ResultSchema
-from src.pynotionclient.schema.database.select_schema import SelectSchema
-from src.pynotionclient.schema.database.status_schema import StatusSchema
+from pynotionclient.schema.database import NumberSchema, PersonSchema, CheckboxSchema, MultiSelectSchema, TitleSchema, RichTextSchema
+from pynotionclient.schema.database.date_schema import DateSchema
+from pynotionclient.schema.database.result_schema import ResultSchema
+from pynotionclient.schema.database.select_schema import SelectSchema
+from pynotionclient.schema.database.status_schema import StatusSchema
 
 
 class NotionDatabaseResponseSchema(pydantic.BaseModel):

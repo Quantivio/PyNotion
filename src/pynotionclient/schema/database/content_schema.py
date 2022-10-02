@@ -2,8 +2,8 @@ from typing import Optional, Any
 
 import pydantic
 
-from src.pynotionclient.schema.database import AnnotationsSchema
-from src.pynotionclient.schema.database import UPDMentionSchema
+from pynotionclient.schema.database import AnnotationsSchema
+from pynotionclient.schema.database import UPDMentionSchema
 
 
 class TextSchema(pydantic.BaseModel):
