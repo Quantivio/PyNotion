@@ -3,6 +3,13 @@
 <img src="assets/notion.png" alt="Notion Logo" height="64" width="64">
 <br>
 
+[![PyPI version](https://badge.fury.io/py/PyNotionclient.svg)](https://badge.fury.io/py/PyNotionclient)
+[![Top Language](https://img.shields.io/github/languages/top/pythonhubdev/PyNotion)](https://img.shields.io/github/languages/top/pythonhubdev/PyNotion)
+![GitHub last commit](https://img.shields.io/github/last-commit/pythonhubdev/PyNotion)
+![PyPI - License](https://img.shields.io/pypi/l/pynotionclient)
+![GitHub Repo stars](https://img.shields.io/github/stars/pythonhubdev/PyNotion?style=social)
+[![Downloads](https://static.pepy.tech/personalized-badge/pynotionclient?period=month&units=international_system&left_color=black&right_color=brightgreen&left_text=Downloads)](https://pepy.tech/project/pynotionclient)
+
 ### A Notion API wrapper for Python (In Development)
 
 > Simple to use and easy to understand API wrapper for Notion.so
@@ -51,6 +58,7 @@ response_filter_payload: NotionDatabaseResponseSchema = py_notion_client.databas
 from pynotionclient import PyNotion
 from examples.config import base_config
 from pynotionclient.schema.database import NotionDatabaseResponseSchema
+
 py_notion_client = PyNotion(token=base_config.notion_secret_token)
 
 # Create necessary properties as dictionary
@@ -66,6 +74,7 @@ response_dict_payload: NotionDatabaseResponseSchema = py_notion_client.database.
 from pynotionclient import PyNotion
 from examples.config import base_config
 from pynotionclient.schema.database import RichTextFilter, PropertyFilter, Filter, NotionDatabaseResponseSchema
+
 py_notion_client = PyNotion(token=base_config.notion_secret_token)
 
 # Create necessary filter objects from Pydantic models and use them to query the database.
