@@ -1,6 +1,6 @@
 from typing import Optional
 
-from src.pynotionclient.schema import EmptyFilter, EqualsFilter
+from src.pynotionclient.schema.database import EmptyFilter, EqualsFilter
 
 
 class DateFilter(EqualsFilter, EmptyFilter):

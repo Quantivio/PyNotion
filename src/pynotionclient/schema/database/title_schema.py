@@ -2,7 +2,7 @@ from typing import List
 
 import pydantic
 
-from src.pynotionclient.schema import ContentSchema
+from src.pynotionclient.schema.database import ContentSchema
 
 
 class TitleSchema(pydantic.BaseModel):

@@ -1,6 +1,6 @@
 from typing import List
 
-from src.pynotionclient.schema import IdTypeSchema, ContentSchema
+from src.pynotionclient.schema.database import IdTypeSchema, ContentSchema
 
 
 class RichTextSchema(IdTypeSchema):

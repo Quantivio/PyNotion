@@ -1,4 +1,4 @@
-from src.pynotionclient.schema import IdTypeSchema
+from src.pynotionclient.schema.database import IdTypeSchema
 
 
 class NumberSchema(IdTypeSchema):

@@ -1,6 +1,6 @@
 from typing import List
 
-from src.pynotionclient.schema import IdNameSchema, IdTypeSchema
+from src.pynotionclient.schema.database import IdNameSchema, IdTypeSchema
 
 
 class MultiSelectItemSchema(IdNameSchema):

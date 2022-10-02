@@ -1,3 +1,4 @@
+from src.pynotionclient.schema.database.annotations_schema import AnnotationsSchema
 from src.pynotionclient.schema.database.check_box_schema import CheckboxSchema
 from src.pynotionclient.schema.database.common_filter_schema import EqualsFilter, EmptyFilter, ContainsFilter
 from src.pynotionclient.schema.database.common_info_schema import IdTypeSchema, IdTypeNameSchema, IdNameSchema, IDSchema
@@ -10,6 +11,7 @@ from src.pynotionclient.schema.database.database_response_schema import (
 )
 from src.pynotionclient.schema.database.date_filter_schema import DateFilter
 from src.pynotionclient.schema.database.filter_request_schema import PropertyFilter, CompoundFilterOR, CompoundFilterAND, Filter
+from src.pynotionclient.schema.database.mention_schema import UPDMentionSchema
 from src.pynotionclient.schema.database.multi_select_schema import MultiSelectSchema
 from src.pynotionclient.schema.database.number_filter_schema import NumberFilter
 from src.pynotionclient.schema.database.number_schema import NumberSchema
@@ -48,6 +50,8 @@ __all__ = [
     "MultiSelectSchema",
     "NumberSchema",
     "RichTextSchema",
+    "AnnotationsSchema",
+    "UPDMentionSchema",
     "Filter",
     "EmptyFilter",
     "RichTextFilter",

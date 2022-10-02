@@ -3,7 +3,7 @@ from typing import List, Any, Type
 import pydantic
 from pydantic import create_model
 
-from src.pynotionclient.schema import NumberSchema, PersonSchema, CheckboxSchema, MultiSelectSchema, TitleSchema, RichTextSchema
+from src.pynotionclient.schema.database import NumberSchema, PersonSchema, CheckboxSchema, MultiSelectSchema, TitleSchema, RichTextSchema
 from src.pynotionclient.schema.database.date_schema import DateSchema
 from src.pynotionclient.schema.database.result_schema import ResultSchema
 from src.pynotionclient.schema.database.select_schema import SelectSchema

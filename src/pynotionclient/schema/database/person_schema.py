@@ -2,7 +2,7 @@ from typing import List
 
 import pydantic
 
-from src.pynotionclient.schema import IdTypeNameSchema, IdTypeSchema
+from src.pynotionclient.schema.database import IdTypeNameSchema, IdTypeSchema
 
 
 class PersonEmailSchema(pydantic.BaseModel):

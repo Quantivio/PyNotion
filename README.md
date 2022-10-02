@@ -22,7 +22,7 @@
 ```python
 from pynotionclient import PyNotion
 from examples.config import base_config
-from pynotionclient.schema import RichTextFilter, PropertyFilter, Filter, NotionDatabaseResponseSchema
+from pynotionclient.schema.database import RichTextFilter, PropertyFilter, Filter, NotionDatabaseResponseSchema
 
 py_notion_client = PyNotion(token=base_config.notion_secret_token)
 
@@ -50,7 +50,7 @@ response_filter_payload: NotionDatabaseResponseSchema = py_notion_client.databas
 ```python
 from pynotionclient import PyNotion
 from examples.config import base_config
-from pynotionclient.schema import NotionDatabaseResponseSchema
+from pynotionclient.schema.database import NotionDatabaseResponseSchema
 py_notion_client = PyNotion(token=base_config.notion_secret_token)
 
 # Create necessary properties as dictionary
@@ -65,7 +65,7 @@ response_dict_payload: NotionDatabaseResponseSchema = py_notion_client.database.
 ```python
 from pynotionclient import PyNotion
 from examples.config import base_config
-from pynotionclient.schema import RichTextFilter, PropertyFilter, Filter, NotionDatabaseResponseSchema
+from pynotionclient.schema.database import RichTextFilter, PropertyFilter, Filter, NotionDatabaseResponseSchema
 py_notion_client = PyNotion(token=base_config.notion_secret_token)
 
 # Create necessary filter objects from Pydantic models and use them to query the database.
