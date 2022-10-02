@@ -12,17 +12,22 @@
 
 ### A Notion API wrapper for Python (In Development)
 
-Simple to use and easy to understand API wrapper for Notion.so Curently in development and 
+Simple to use and easy to understand API wrapper for Notion.so Curently in development and
 supports the following features:
+
 1. Create a new database
 2. Get a database
 
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
 ## Installation
+
 `poetry add pynotionclient`
 
 `pip install pynotionclient`
 
 ## Usage
+
 ```python
 from pynotionclient import PyNotion
 from examples.config import base_config
@@ -91,6 +96,7 @@ response_filter_payload: NotionDatabaseResponseSchema = py_notion_client.databas
 > properties: https://developers.notion.com/reference/database
 
 #### 3. Creating a database
+
 ```python
 from dotenv import load_dotenv
 
@@ -114,69 +120,69 @@ from pynotionclient.schema.database import (
     NumberFormats,
     NumberFormatConfiguration,
     DatabasePropertyConfiguration,
-)
+    )
 
 load_dotenv()
 py_notion_client = PyNotion(token=base_config.notion_secret_token)
 
 # # Create database payload
 parent_payload = ParentConfiguration(
-    type="page_id", page_id=base_config.page_id
-)  # The parent is the page where the database will be created.
+        type="page_id", page_id=base_config.page_id
+        )  # The parent is the page where the database will be created.
 icon_payload = IconConfiguration(
-    type="emoji", emoji="🎮"
-)  # The icon is the icon that will be displayed on the database.
+        type="emoji", emoji="🎮"
+        )  # The icon is the icon that will be displayed on the database.
 text = TextConfiguration(
-    content="Game"
-)  # The text is the text that will be displayed as the title of the database.
+        content="Game"
+        )  # The text is the text that will be displayed as the title of the database.
 content = ContentConfiguration(
-    type="text", plain_text="Game", href="https://www.google.com", text=text
-)  # The content has other info's of the title.
+        type="text", plain_text="Game", href="https://www.google.com", text=text
+        )  # The content has other info's of the title.
 
 # Cover schema
 cover = CoverConfiguration(
-    type="external", external=ExternalConfiguration(url="https://www.google.com")
-)
+        type="external", external=ExternalConfiguration(url="https://www.google.com")
+        )
 
 # # Forming select options schema
 properties = {
-    "Name": TitleConfiguration().dict(),
-    "Description": RichTextConfiguration().dict(),
-    "In stock": CheckboxConfiguration().dict(),
-    "Food Group": SelectConfiguration(
-        select=SelecOptionsListConfig(
-            options=[
-                SelectOptionsConfiguration(color="green", name="Code"),
-                SelectOptionsConfiguration(color="red", name="Game"),
-            ],
-        )
-    ).dict(),
-    "Cusines": MultiSelectConfiguration(
-        multi_select=SelecOptionsListConfig(
-            options=[
-                SelectOptionsConfiguration(color="green", name="Code"),
-                SelectOptionsConfiguration(color="red", name="Game"),
-            ],
-        )
-    ).dict(),
-    "Price": NumberConfiguration(
-        number=NumberFormatConfiguration(
-            format=NumberFormats.NUMBER_WITH_COMMAS,
-        ),
-    ).dict(),
-}
+        "Name":        TitleConfiguration().dict(),
+        "Description": RichTextConfiguration().dict(),
+        "In stock":    CheckboxConfiguration().dict(),
+        "Food Group":  SelectConfiguration(
+                select=SelecOptionsListConfig(
+                        options=[
+                                SelectOptionsConfiguration(color="green", name="Code"),
+                                SelectOptionsConfiguration(color="red", name="Game"),
+                                ],
+                        )
+                ).dict(),
+        "Cusines":     MultiSelectConfiguration(
+                multi_select=SelecOptionsListConfig(
+                        options=[
+                                SelectOptionsConfiguration(color="green", name="Code"),
+                                SelectOptionsConfiguration(color="red", name="Game"),
+                                ],
+                        )
+                ).dict(),
+        "Price":       NumberConfiguration(
+                number=NumberFormatConfiguration(
+                        format=NumberFormats.NUMBER_WITH_COMMAS,
+                        ),
+                ).dict(),
+        }
 print(properties)
 create_database_payload = DatabasePropertyConfiguration(
-    title=[content],
-    cover=cover,
-    parent=parent_payload,
-    icon=icon_payload,
-    properties=properties,
-)
+        title=[content],
+        cover=cover,
+        parent=parent_payload,
+        icon=icon_payload,
+        properties=properties,
+        )
 
 response = py_notion_client.database.create_database(
-    payload=create_database_payload,
-)
+        payload=create_database_payload,
+        )
 
 print(response.json())
 ```
@@ -184,3 +190,4 @@ print(response.json())
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
