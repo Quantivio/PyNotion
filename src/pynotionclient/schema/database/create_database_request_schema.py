@@ -1,9 +1,9 @@
-from typing import Any, List
+from typing import Any, List, Optional
 
 import pydantic
 from pydantic import validator
 
-from pynotionclient.schema.database.rich_text_schema import RichTextSchema
+from pynotionclient.schema.database.content_schema import ContentSchema
 
 
 class ParentSchema(pydantic.BaseModel):
@@ -11,11 +11,11 @@ class ParentSchema(pydantic.BaseModel):
     page_id: str
 
 
-class IconsSchema(pydantic.BaseModel):
+class IconSchema(pydantic.BaseModel):
     type: str
     emoji: str
 
-    @validator
+    @validator("type")
     def validate_emoji_type(cls, emoji_type):
         if emoji_type != "emoji":
             raise ValueError("Emoji type must be emoji")
@@ -32,12 +32,12 @@ class CoverSchema(pydantic.BaseModel):
 
 class TextSchema(pydantic.BaseModel):
     content: str
-    link: pydantic.AnyUrl
+    link: Optional[str]
 
 
 class CreateDatabaseRequestSchema(pydantic.BaseModel):
     parent: ParentSchema
-    title: List[RichTextSchema]
-    icon: IconsSchema
+    title: List[ContentSchema]
+    icon: IconSchema
     cover: CoverSchema
     properties: Any

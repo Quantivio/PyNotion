@@ -14,15 +14,15 @@ class TextSchema(pydantic.BaseModel):
 
 
 class ContentSchema(pydantic.BaseModel):
-    type: str
+    type: Optional[str]
     text: Optional[TextSchema]
     mention: Optional[UPDMentionSchema]
-    annotations: AnnotationsSchema
+    annotations: Optional[AnnotationsSchema]
     equation: Optional[EquationSchema]
     plain_text: str
     href: Any
 
-    @validator
+    @validator("type")
     def validate_type(cls, content_type):
         if content_type not in ["text", "mention", "equation"]:
             raise ValueError("Content type must be text, mention, or equation")

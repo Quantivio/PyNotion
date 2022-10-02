@@ -3,6 +3,14 @@ from pynotionclient.schema.database.check_box_schema import CheckboxSchema
 from pynotionclient.schema.database.common_filter_schema import EqualsFilter, EmptyFilter, ContainsFilter
 from pynotionclient.schema.database.common_info_schema import IdTypeSchema, IdTypeNameSchema, IdNameSchema, IDSchema
 from pynotionclient.schema.database.content_schema import ContentSchema
+from pynotionclient.schema.database.create_database_request_schema import (
+    CreateDatabaseRequestSchema,
+    ParentSchema,
+    ExternalSchema,
+    TextSchema,
+    CoverSchema,
+    IconSchema,
+)
 from pynotionclient.schema.database.database_response_schema import (
     NotionDatabaseResponseSchema,
     generate_dynamic_notion_response_schema,
@@ -36,6 +44,12 @@ from pynotionclient.schema.database.title_schema import TitleSchema
 
 __all__ = [
     "NotionDatabaseResponseSchema",
+    "CreateDatabaseRequestSchema",
+    "ParentSchema",
+    "ExternalSchema",
+    "TextSchema",
+    "CoverSchema",
+    "IconSchema",
     "IdTypeSchema",
     "IdTypeNameSchema",
     "TitleSchema",

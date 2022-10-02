@@ -6,7 +6,7 @@ from requests import ReadTimeout, Timeout, ConnectTimeout, Response
 from pynotionclient.config import Constants
 from pynotionclient.config import Urls
 from pynotionclient.schema.common.header_schema import default_header_schema
-from pynotionclient.schema.database import Filter
+from pynotionclient.schema.database import Filter, CreateDatabaseRequestSchema
 from pynotionclient.schema.database import (
     NotionDatabaseResponseSchema,
 )
@@ -53,13 +53,18 @@ class NotionDatabase:
             raise time_out_exception
 
     @staticmethod
-    def create_database(payload: dict):
+    def create_database(payload: dict | CreateDatabaseRequestSchema):
         function_name: str = "Creating Notion database"
         logger.info(message=f"Creating database", file_name=__name__, function_name=function_name)
         try:
+            __payload: dict | str | None = None
+            if type(payload) is dict:
+                __payload = payload
+            elif type(payload) is CreateDatabaseRequestSchema:
+                __payload = payload.dict(exclude_none=True, by_alias=True)
             response: Response = requests.post(
                 url=Constants.DB_BASE_URL,
-                json=payload,
+                json=__payload,
                 headers=default_header_schema.dict(by_alias=True),
                 timeout=60,
             )

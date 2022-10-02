@@ -5,6 +5,7 @@ from pydantic import BaseSettings
 class Config(BaseSettings):
     notion_secret_token: str
     database_id: str
+    page_id: str
 
     class Config:
         env_file = ".env"

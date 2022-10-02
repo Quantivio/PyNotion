@@ -1,12 +1,14 @@
+from typing import Optional
+
 import pydantic
 
 
 class IDSchema(pydantic.BaseModel):
-    id: str
+    id: Optional[str]
 
 
 class IdTypeSchema(IDSchema):
-    type: str
+    type: Optional[str]
 
 
 class IdNameSchema(IDSchema):
