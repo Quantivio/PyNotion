@@ -4,18 +4,20 @@ import requests
 from requests import ReadTimeout, Timeout, ConnectTimeout, Response
 
 from src.pynotionclient.config import Constants
-from src.pynotionclient.schema import (
-    generate_dynamic_properties_schema,
-    generate_dynamic_result_schema,
-    NotionDatabaseResponseSchema,
-    generate_dynamic_notion_response_schema,
-)
-from src.pynotionclient.schema import Filter
 from src.pynotionclient.config import Urls
-from src.pynotionclient.schema import (
+from src.pynotionclient.schema.common.header_schema import default_header_schema
+from src.pynotionclient.schema.database import Filter
+from src.pynotionclient.schema.database import (
+    NotionDatabaseResponseSchema,
+)
+from src.pynotionclient.schema.database import (
     ResultSchema,
 )
-from src.pynotionclient.schema import default_header_schema
+from src.pynotionclient.schema.database.database_response_schema import (
+    generate_dynamic_properties_schema,
+    generate_dynamic_result_schema,
+    generate_dynamic_notion_response_schema,
+)
 from src.pynotionclient.utils import logger
 
 
