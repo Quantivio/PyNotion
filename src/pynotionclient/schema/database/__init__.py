@@ -57,6 +57,9 @@ from pynotionclient.schema.database.response.common_info_schema import (
     IDSchema,
 )
 from pynotionclient.schema.database.response.content_schema import ContentSchema
+from pynotionclient.schema.database.response.create_database_response_schema import (
+    CreateDatabaseResponseSchema,
+)
 from pynotionclient.schema.database.response.database_response_schema import (
     NotionDatabaseResponseSchema,
     generate_dynamic_notion_response_schema,
@@ -102,6 +105,7 @@ from pynotionclient.schema.database.response.title_schema import TitleSchema
 
 __all__ = [
     "NotionDatabaseResponseSchema",
+    "CreateDatabaseResponseSchema",
     "DatabasePropertyConfiguration",
     "SelectOptionsConfiguration",
     "SelectConfiguration",
