@@ -11,6 +11,11 @@ from pynotionclient.schema.database import (
 from pynotionclient.schema.database import (
     ResultSchema,
 )
+from pynotionclient.schema.database.response.create_database_response_schema import (
+    generate_dynamic_create_notion_response_schema,
+    CreateDatabaseResponseSchema,
+    generate_dynamic_property_create_response_schema,
+)
 from pynotionclient.schema.database.response.database_response_schema import (
     generate_dynamic_properties_schema,
     generate_dynamic_result_schema,
@@ -70,7 +75,9 @@ class NotionDatabase:
             raise time_out_exception
 
     @staticmethod
-    def create_database(payload: dict | DatabasePropertyConfiguration):
+    def create_database(
+        payload: dict | DatabasePropertyConfiguration,
+    ) -> CreateDatabaseResponseSchema:
         function_name: str = "Creating Notion database"
         logger.info(
             message="Creating database",
@@ -89,7 +96,22 @@ class NotionDatabase:
                 headers=default_header_schema.dict(by_alias=True),
                 timeout=60,
             )
-            return response
+            json_data = response.json()
+            properties: dict | None = None
+            if json_data and json_data["properties"]:
+                properties = json_data["properties"]
+            generate_dynamic_property_response_schema = (
+                generate_dynamic_property_create_response_schema(properties)
+            )
+            dynamic_create_notion_database_response_schema: type[
+                CreateDatabaseResponseSchema
+            ] = generate_dynamic_create_notion_response_schema(
+                generate_dynamic_property_response_schema
+            )
+            database_response: CreateDatabaseResponseSchema = (
+                dynamic_create_notion_database_response_schema(**json_data)
+            )
+            return database_response
         except (ConnectTimeout, Timeout, ReadTimeout) as time_out_exception:
             logger.error(
                 message="Timeout error while creating database",

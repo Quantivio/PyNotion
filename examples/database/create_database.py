@@ -21,6 +21,9 @@ from pynotionclient.schema.database import (
     NumberFormatConfiguration,
     DatabasePropertyConfiguration,
 )
+from pynotionclient.schema.database.response.create_database_response_schema import (
+    CreateDatabaseResponseSchema,
+)
 
 load_dotenv()
 py_notion_client = PyNotion(token=base_config.notion_secret_token)
@@ -60,8 +63,8 @@ properties = {
     "Cusines": MultiSelectConfiguration(
         multi_select=SelecOptionsListConfig(
             options=[
-                SelectOptionsConfiguration(color="green", name="Code"),
-                SelectOptionsConfiguration(color="red", name="Game"),
+                SelectOptionsConfiguration(color="orange", name="Italian"),
+                SelectOptionsConfiguration(color="blue", name="French"),
             ],
         )
     ).dict(),
@@ -71,7 +74,6 @@ properties = {
         ),
     ).dict(),
 }
-print(properties)
 create_database_payload = DatabasePropertyConfiguration(
     title=[content],
     cover=cover,
@@ -80,8 +82,8 @@ create_database_payload = DatabasePropertyConfiguration(
     properties=properties,
 )
 
-response = py_notion_client.database.create_database(
+response: CreateDatabaseResponseSchema = py_notion_client.database.create_database(
     payload=create_database_payload,
 )
 
-print(response.json())
+print(response.json(indent=4))
