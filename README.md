@@ -17,7 +17,7 @@ in development and
 supports the following features:
 
 1. Create a new database
-2. Get a database
+2. Query a database
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
