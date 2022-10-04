@@ -27,4 +27,4 @@ jobs:
           poetry install
       - name: Lint with pylint
         run: |
-          poetry run pylint --rcfile=.pylintrc src 
+          poetry run pylint src 
