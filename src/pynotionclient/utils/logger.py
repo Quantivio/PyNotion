@@ -29,25 +29,54 @@ class ColoredFormatter(logging.Formatter):
 class CustomLogger:
     def __init__(self):
         stdout_handler = logging.StreamHandler()
-        stdout_handler.setFormatter(ColoredFormatter("%(levelname)s | %(asctime)s | %(message)s"))
+        stdout_handler.setFormatter(
+            ColoredFormatter("%(levelname)s | %(asctime)s | %(message)s")
+        )
         self.custom_logger = logging.getLogger(__name__)
         self.custom_logger.setLevel(logging.INFO)
         self.custom_logger.addHandler(stdout_handler)
 
     def info(self, message: str, function_name: str, file_name: str):
-        self.custom_logger.info("FileName: %s | FunctionName: %s | Message: %s", file_name, function_name, message)
+        self.custom_logger.info(
+            "FileName: %s | FunctionName: %s | Message: %s",
+            file_name,
+            function_name,
+            message,
+        )
 
     def debug(self, message: str, function_name: str, file_name: str):
-        self.custom_logger.debug("FileName: %s | FunctionName: %s | Message: %s", file_name, function_name, message)
+        self.custom_logger.debug(
+            "FileName: %s | FunctionName: %s | Message: %s",
+            file_name,
+            function_name,
+            message,
+        )
 
     def warning(self, message: str, function_name: str, file_name: str):
-        self.custom_logger.warning("FileName: %s | FunctionName: %s | Message: %s", file_name, function_name, message)
+        self.custom_logger.warning(
+            "FileName: %s | FunctionName: %s | Message: %s",
+            file_name,
+            function_name,
+            message,
+        )
 
     def error(self, message: str, function_name: str, file_name: str):
-        self.custom_logger.error("FileName: %s | FunctionName: %s | Message: %s", file_name, function_name, message, exc_info=True)
+        self.custom_logger.error(
+            "FileName: %s | FunctionName: %s | Message: %s",
+            file_name,
+            function_name,
+            message,
+            exc_info=True,
+        )
 
     def critical(self, message: str, function_name: str, file_name: str):
-        self.custom_logger.critical("FileName: %s | FunctionName: %s | Message: %s", file_name, function_name, message, exc_info=True)
+        self.custom_logger.critical(
+            "FileName: %s | FunctionName: %s | Message: %s",
+            file_name,
+            function_name,
+            message,
+            exc_info=True,
+        )
 
 
 logger = CustomLogger()
