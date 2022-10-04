@@ -25,6 +25,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install pylint pylint-quotes
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Setup python path
+        run: |
+          export PYTHONPATH=$PYTHONPATH:`pwd`
       - name: Lint with pylint
         run: |
           pylint --rcfile=.pylintrc src 
