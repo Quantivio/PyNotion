@@ -1,23 +1,21 @@
-# PyNotion
 
-<img src="assets/notion.png" alt="Notion Logo" height="64" width="64">
+<img src="assets/notion.png" alt="Notion Logo" height="240" width="240" style="display: block; margin: auto">
 <br>
+<hr>
+<h1 style="font-size: 50px; margin: 0; padding: 0">PyNotion</h1>
 
-[![PyPI version](https://badge.fury.io/py/PyNotionclient.svg)](https://badge.fury.io/py/PyNotionclient)
-[![Top Language](https://img.shields.io/github/languages/top/pythonhubdev/PyNotion)](https://img.shields.io/github/languages/top/pythonhubdev/PyNotion)
-![GitHub last commit](https://img.shields.io/github/last-commit/pythonhubdev/PyNotion)
-![PyPI - License](https://img.shields.io/pypi/l/pynotionclient)
-![GitHub Repo stars](https://img.shields.io/github/stars/pythonhubdev/PyNotion?style=social)
-[![Downloads](https://static.pepy.tech/personalized-badge/pynotionclient?period=month&units=international_system&left_color=black&right_color=brightgreen&left_text=Downloads)](https://pepy.tech/project/pynotionclient)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pynotionclient?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/pythonhubdev/PyNotion?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/pythonhubdev/PyNotion?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/pythonhubdev/PyNotion?style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pythonhubdev/PyNotion/CodeQL?style=for-the-badge)
 
-### A Notion API wrapper for Python (In Development)
-
-PyNotion is a simple-to-use and easy-to-understand API wrapper for [Notion.so](https://developers.notion.com/) Currently
+**A Notion API wrapper for Python** (In Development). PyNotion is a simple-to-use and easy-to-understand API wrapper for [Notion.so](https://developers.notion.com/) Currently
 in development and
 supports the following features:
 
-1. Create a new database
-2. Get a database
+>1. Create a new database
+>2. Query a database
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
