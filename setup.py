@@ -17,7 +17,7 @@ classifiers = [
 
 setup(
     name="PyNotion",
-    version="0.0.9-dev",
+    version="0.0.9-dev1",
     description="Python wrapper for Notion API",
     long_description=long_description,
     long_description_content_type="text/markdown",
