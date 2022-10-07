@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pynotionclient"
-version = "0.0.9-dev"
+version = "0.0.9-dev1"
 description = "Python wrapper for Notion API"
 authors = ["Vetrichelvan <pythonhub.py@gmail.com>"]
 license = "MIT"
