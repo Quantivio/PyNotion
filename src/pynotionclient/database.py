@@ -65,7 +65,7 @@ class NotionDatabase:
             database_response: NotionDatabaseResponseSchema = (
                 dynamic_notion_database_response_schema(**json_data)
             )
-            if return_json: # setting return type
+            if return_json: 
                 return database_response.json()
             else:
                 return database_response
@@ -79,7 +79,7 @@ class NotionDatabase:
 
     @staticmethod
     def create_database(
-        payload: dict | DatabasePropertyConfiguration,
+        payload: dict | DatabasePropertyConfiguration, return_json : bool
     ) -> CreateDatabaseResponseSchema:
         function_name: str = "Creating Notion database"
         logger.info(
@@ -114,7 +114,10 @@ class NotionDatabase:
             database_response: CreateDatabaseResponseSchema = (
                 dynamic_create_notion_database_response_schema(**json_data)
             )
-            return database_response
+            if return_json: 
+                return database_response.json()
+            else:
+                return database_response
         except (ConnectTimeout, Timeout, ReadTimeout) as time_out_exception:
             logger.error(
                 message="Timeout error while creating database",
