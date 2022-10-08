@@ -187,7 +187,21 @@ response = py_notion_client.database.create_database(
 print(response.json())
 ```
 
-## Contributing
+
+# Setup for development
+> ## Virtual environment setup with Poetry
+> 1.  Create a fork of the repository
+> 2. Clone the repository to your local machine 
+`git clone git@github.com:<username>/PyNotion.git`
+> 3. Install poetry with `pip install poetry` or `pip3 install poetry`
+> 4. Navigate to the root of the project and run `poetry install`
+
+> ## Setup Pre-commit hooks
+> 1. Install pre-commit hooks `pre-commit install`
+> 2. Migrate pre-commit configs `pre-commit migrate-config`
+> 3. Incase of error run `git config --global --unset-all core.hooksPath` or `git config --unset-all core.hooksPath`
+
+## Contribution Guidelines
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
