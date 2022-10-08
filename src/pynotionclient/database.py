@@ -31,7 +31,7 @@ class NotionDatabase:
 
     @staticmethod
     def query_database(
-        database_id: str, payload: dict | Filter, return_json : bool
+        database_id: str, payload: dict | Filter, return_json: bool
     ) -> NotionDatabaseResponseSchema:
         function_name: str = "Querying Notion database"
         logger.info(
@@ -65,7 +65,7 @@ class NotionDatabase:
             database_response: NotionDatabaseResponseSchema = (
                 dynamic_notion_database_response_schema(**json_data)
             )
-            if return_json: 
+            if return_json:
                 return database_response.json()
             else:
                 return database_response
@@ -79,7 +79,7 @@ class NotionDatabase:
 
     @staticmethod
     def create_database(
-        payload: dict | DatabasePropertyConfiguration, return_json : bool
+        payload: dict | DatabasePropertyConfiguration, return_json: bool
     ) -> CreateDatabaseResponseSchema:
         function_name: str = "Creating Notion database"
         logger.info(
@@ -114,7 +114,7 @@ class NotionDatabase:
             database_response: CreateDatabaseResponseSchema = (
                 dynamic_create_notion_database_response_schema(**json_data)
             )
-            if return_json: 
+            if return_json:
                 return database_response.json()
             else:
                 return database_response
