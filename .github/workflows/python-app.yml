@@ -1,4 +1,4 @@
-name: PyNotion Checks
+name: "PyNotion-Lint"
 
 on:
   push:
