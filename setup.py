@@ -27,7 +27,7 @@ setup(
     url="https://github.com/pythonhubpy/PyNotion",
     packages=find_packages(exclude=["tests"]),
     install_package_data=True,
-    install_requires=["request", "pydantic"],
+    install_requires=["requests", "pydantic"],
     classifiers=classifiers,
     python_requires=">=3.8",
 )
