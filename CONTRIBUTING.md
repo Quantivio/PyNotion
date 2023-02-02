@@ -1,40 +1,36 @@
-Hello Devs👋🏻, Thankyou for speding your valuable time to contribute to **PyNotion**.
-All PRs, contributions, reviews and suggestions are welcome.
-Please follow the guidelines below to contribute to this project.
+# Welcome to the PyNotion Contribution Community!
 
-# Creating an Issue
+We're thrilled that you're interested in helping out with the development of **PyNotion**! Every contribution, no matter how small, makes a difference and helps keep this project moving forward.
 
-Please follow the issue template while creating an issue.
-If you are creating an issue follow the below templates:
+Here's what you need to know to get started:
 
-1. For Bugs - [Bug Template](https://github.com/pythonhubdev/PyNotion/blob/main/.github/ISSUE_TEMPLATE/bug_report.md)
-2. For Feature Requests
-   - [Feature Template](https://github.com/pythonhubdev/PyNotion/blob/main/.github/ISSUE_TEMPLATE/feature_request.md)
+## Creating an Issue
 
-You can also use the custom template to create an issue if the above templates did not match your needs.
+To report a bug or request a new feature, please use the appropriate issue template:
 
-# Setup for development
-> ## Virtual environment setup with Poetry
-> 1.  Create a fork of the repository
-> 2. Clone the repository to your local machine 
-`git clone git@github.com:<username>/PyNotion.git`
-> 3. Install poetry with `pip install poetry` or `pip3 install poetry`
-> 4. Navigate to the root of the project and run `poetry install`
+1. [Bug Report Template](https://github.com/pythonhubdev/PyNotion/blob/main/.github/ISSUE_TEMPLATE/bug_report.md)
+2. [Feature Request Template](https://github.com/pythonhubdev/PyNotion/blob/main/.github/ISSUE_TEMPLATE/feature_request.md)
 
-> ## Setup Pre-commit hooks
-> 1. Install pre-commit hooks `pre-commit install`
-> 2. Migrate pre-commit configs `pre-commit migrate-config`
-> 3. Incase of error run `git config --global --unset-all core.hooksPath` or `git config --unset-all core.hooksPath`
+Not sure which template to use? No problem, you can also create a custom issue to describe what you need.
 
+## Setting up Your Development Environment
 
-# Creating a Pull Request
+To get started with development, follow these steps:
 
-1. Fork the repository
-2. Create a branch from the `main`
-3. Please have a proper name for the branch like **feature or a bug** related to what you are working on
-4. Once completed raise a PR and add a reviewer
-5. Once reviewed the PR will be merged
+1. Fork the repository and clone it to your local machine with `git clone git@github.com:<username>/PyNotion.git`
+2. Install [Poetry](https://python-poetry.org/) with `pip install poetry` or `pip3 install poetry`
+3. Navigate to the project root and run `poetry install`
+4. Set up pre-commit hooks by running `pre-commit install` and then `pre-commit migrate-config`
 
-Please provide necessary changes or update if mentioned by a reviewer also stick to
-the [CODE_OF_CONDUCT.md](https://github.com/pythonhubdev/PyNotion/blob/main/CODE_OF_CONDUCT.md) while adding review
-comments or while answering review comments.
+## Submitting a Pull Request
+
+Here's what you need to do to submit a pull request:
+
+1. Create a branch off the `main` branch with a descriptive name that reflects what you're working on.
+2. Make your changes and test them thoroughly.
+3. Submit a pull request and assign at least one reviewer.
+4. Respond to feedback from the review and make any necessary changes.
+
+Before submitting your pull request, please make sure that your changes align with the [Code of Conduct](https://github.com/pythonhubdev/PyNotion/blob/main/CODE_OF_CONDUCT.md).
+
+Thanks for your support, and happy coding!
