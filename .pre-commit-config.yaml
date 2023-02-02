@@ -17,4 +17,4 @@ repos:
         entry: black
         description: "Black: The uncompromising code formatter."
         language: python
-        language_version: python3.10.5
+        language_version: python3.11
