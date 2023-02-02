@@ -10,21 +10,39 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pythonhubdev/PyNotion/PyNotion%20Checks?style=for-the-badge)
 ![Code Style](https://img.shields.io/static/v1?label=CodeStyle&message=Black&color=%3CCOLOR%3E&style=for-the-badge)
 
-**A Notion API wrapper for Python** (In Development). PyNotion is a simple-to-use and easy-to-understand API wrapper
-for [Notion.so](https://developers.notion.com/) Currently
-in development and
-supports the following features:
+PyNotion is a simple and intuitive Python library for accessing the Notion API. With PyNotion, you can easily integrate and automate Notion tasks within your Python projects.
 
-> 1. Create a new database
->2. Query a database
+**Please note that PyNotion is currently under development and may not yet be suitable for production use.**
+
+
+## Features
+PyNotion is currently in development and supports the following features:
+
+1. Create new databases
+2. Query existing databases
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
-## Installation
+# Installing PyNotion
 
-`poetry add pynotionclient`
+You can install PyNotion using either [Poetry](https://python-poetry.org/) or [pip](https://pypi.org/project/pip/).
 
-`pip install pynotionclient`
+## Using Poetry
+
+To install PyNotion using Poetry, run the following command in your terminal:
+
+```bash
+poetry add pynotionclient
+```
+
+## Using pip
+
+To install PyNotion using pip, run the following command in your terminal:
+
+```bash
+pip install pynotionclient
+```
+
 
 ## Usage
 
@@ -188,20 +206,22 @@ print(response.json())
 ```
 
 
-# Setup for development
-> ## Virtual environment setup with Poetry
-> 1.  Create a fork of the repository
-> 2. Clone the repository to your local machine 
-`git clone git@github.com:<username>/PyNotion.git`
-> 3. Install poetry with `pip install poetry` or `pip3 install poetry`
-> 4. Navigate to the root of the project and run `poetry install`
+# PyNotion Development Setup
 
-> ## Setup Pre-commit hooks
-> 1. Install pre-commit hooks `pre-commit install`
-> 2. Migrate pre-commit configs `pre-commit migrate-config`
-> 3. Incase of error run `git config --global --unset-all core.hooksPath` or `git config --unset-all core.hooksPath`
+Follow these steps to set up your development environment for PyNotion:
 
-## Contribution Guidelines
+## Virtual Environment with Poetry
+1. Create a fork of the PyNotion repository
+2. Clone the repository to your local machine: `git clone git@github.com:<username>/PyNotion.git`
+3. Install Poetry: `pip install poetry` or `pip3 install poetry`
+4. Navigate to the root of the project and run: `poetry install`
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Pre-commit Hooks
+1. Install pre-commit hooks: `pre-commit install`
+2. Migrate pre-commit configurations: `pre-commit migrate-config`
+3. If you encounter an error, run: `git config --global --unset-all core.hooksPath` or `git config --unset-all core.hooksPath`
+
+## Contributing
+
+We welcome contributions to PyNotion! Before making a major change, please open an issue to discuss your proposed changes. To submit a contribution, simply create a pull request.
 
