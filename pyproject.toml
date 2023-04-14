@@ -22,7 +22,7 @@ requests = "^2.28.1"
 pydantic = "^1.10.7"
 
 [tool.poetry.group.development.dependencies]
-python-dotenv = "^0.21.0"
+python-dotenv = "^1.0.0"
 pylint-quotes = "^0.2.3"
 pytest-cov = "^4.0.0"
 pytest = "^7.3.0"
