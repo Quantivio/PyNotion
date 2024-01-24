@@ -27,7 +27,5 @@ class UserIDSchemaConfig(pydantic.BaseModel):
 
 
 # User, Page, database mention schema
-class UPDMentionSchemaConfigConfigConfig(
-    PageSchemaConfig, DatabaseSchemaConfig, UserSchemaConfig, UserIDSchemaConfig
-):
+class UPDMentionSchemaConfigConfigConfig(PageSchemaConfig, DatabaseSchemaConfig, UserSchemaConfig, UserIDSchemaConfig):
     pass

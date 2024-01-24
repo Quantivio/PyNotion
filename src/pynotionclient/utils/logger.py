@@ -29,9 +29,7 @@ class ColoredFormatter(logging.Formatter):
 class CustomLogger:
     def __init__(self):
         stdout_handler = logging.StreamHandler()
-        stdout_handler.setFormatter(
-            ColoredFormatter("%(levelname)s | %(asctime)s | %(message)s")
-        )
+        stdout_handler.setFormatter(ColoredFormatter("%(levelname)s | %(asctime)s | %(message)s"))
         self.custom_logger = logging.getLogger(__name__)
         self.custom_logger.setLevel(logging.INFO)
         self.custom_logger.addHandler(stdout_handler)

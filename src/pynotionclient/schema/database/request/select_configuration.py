@@ -6,13 +6,13 @@ class SelectOptionsConfiguration(pydantic.BaseModel):
     color: str
 
 
-class SelecOptionsListConfig(pydantic.BaseModel):
+class SelectOptionsListConfig(pydantic.BaseModel):
     options: list[SelectOptionsConfiguration]
 
 
 class SelectConfiguration(pydantic.BaseModel):
-    select: SelecOptionsListConfig
+    select: SelectOptionsListConfig
 
 
 class MultiSelectConfiguration(pydantic.BaseModel):
-    multi_select: SelecOptionsListConfig
+    multi_select: SelectOptionsListConfig

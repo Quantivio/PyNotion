@@ -3,10 +3,10 @@ from dotenv import load_dotenv
 from examples.config import base_config
 from pynotionclient import PyNotion
 from pynotionclient.schema.database import (
-    RichTextFilter,
-    PropertyFilter,
     Filter,
     NotionDatabaseResponseSchema,
+    PropertyFilter,
+    RichTextFilter,
 )
 
 load_dotenv()
@@ -23,15 +23,11 @@ rich_text_filter = RichTextFilter(contains="Game")
 property_filter = PropertyFilter(property="Name", rich_text=rich_text_filter)
 filter_object = Filter(page_size=100, filter=property_filter)
 
-response_dict_payload: NotionDatabaseResponseSchema = (
-    py_notion_client.database.query_database(
-        database_id=base_config.database_id, payload=filter_dict
-    )
+response_dict_payload: NotionDatabaseResponseSchema = py_notion_client.database.query_database(
+    database_id=base_config.database_id, payload=filter_dict
 )
-response_filter_payload: NotionDatabaseResponseSchema = (
-    py_notion_client.database.query_database(
-        database_id=base_config.database_id, payload=filter_object
-    )
+response_filter_payload: NotionDatabaseResponseSchema = py_notion_client.database.query_database(
+    database_id=base_config.database_id, payload=filter_object
 )
 
 # Since we are using pydantic the result can be used either as on object or as a dictionary or json.

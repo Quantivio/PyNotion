@@ -7,11 +7,11 @@ from pynotionclient.schema.database.response.date_filter_schema import DateFilte
 from pynotionclient.schema.database.response.number_filter_schema import NumberFilter
 from pynotionclient.schema.database.response.other_filters_schema import (
     CheckboxFilter,
-    SelectFilter,
+    FileFilter,
     MultiSelectFilter,
     PeopleFilter,
-    FileFilter,
     RelationFilter,
+    SelectFilter,
 )
 from pynotionclient.schema.database.response.rich_text_filter_schema import (
     RichTextFilter,
@@ -52,6 +52,4 @@ class CompoundFilterAND(pydantic.BaseModel):
 
 class Filter(pydantic.BaseModel):
     page_size: int
-    filter: Optional[
-        PropertyFilter | TimeStampFilter | CompoundFilterOR | CompoundFilterAND | dict
-    ] = None
+    filter: Optional[PropertyFilter | TimeStampFilter | CompoundFilterOR | CompoundFilterAND | dict] = None

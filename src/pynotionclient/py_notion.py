@@ -9,7 +9,7 @@ from pynotionclient.utils import logger
 
 class PyNotion:
     def __init__(self, token: str):
-        function_name = "Intialize PyNotion Client"
+        function_name = "Initialize PyNotion Client"
         # Initialize PyNotion client with SECRET_TOKEN or API_TOKEN from Notion. Default value is None
         self.token: str | None = token
         if self.token is None or len(self.token) == 0:
@@ -22,7 +22,7 @@ class PyNotion:
             raise InvalidTokenException
 
         logger.info(
-            message="Successfully intialized PyNotion Client",
+            message="Successfully initialized PyNotion Client",
             function_name=function_name,
             file_name="py_notion.py",
         )

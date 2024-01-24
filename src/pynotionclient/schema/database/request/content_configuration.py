@@ -1,7 +1,7 @@
-from typing import Optional, Any
+from typing import Any, Optional
 
 import pydantic
-from pydantic import validator
+from pydantic import field_validator
 
 from pynotionclient.schema.database.annotations_schema_config import (
     AnnotationsSchemaConfig,
@@ -26,7 +26,7 @@ class ContentConfiguration(pydantic.BaseModel):
     plain_text: str
     href: Any
 
-    @validator("type")
-    def validate_type(cls, content_type):
+    @field_validator("type")
+    def validate_type(cls, content_type):  # noqa
         if content_type not in ["text", "mention", "equation"]:
             raise ValueError("Content type must be text, mention, or equation")

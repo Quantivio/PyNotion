@@ -3,23 +3,23 @@ from dotenv import load_dotenv
 from examples.config import base_config
 from pynotionclient import PyNotion
 from pynotionclient.schema.database import (
-    ParentConfiguration,
-    IconConfiguration,
-    TextConfiguration,
-    ExternalConfiguration,
-    CoverConfiguration,
-    SelectOptionsConfiguration,
-    SelecOptionsListConfig,
-    TitleConfiguration,
-    RichTextConfiguration,
     CheckboxConfiguration,
-    SelectConfiguration,
     ContentConfiguration,
+    CoverConfiguration,
+    DatabasePropertyConfiguration,
+    ExternalConfiguration,
+    IconConfiguration,
     MultiSelectConfiguration,
     NumberConfiguration,
-    NumberFormats,
     NumberFormatConfiguration,
-    DatabasePropertyConfiguration,
+    NumberFormats,
+    ParentConfiguration,
+    RichTextConfiguration,
+    SelectConfiguration,
+    SelectOptionsConfiguration,
+    SelectOptionsListConfig,
+    TextConfiguration,
+    TitleConfiguration,
 )
 from pynotionclient.schema.database.response.create_database_response_schema import (
     CreateDatabaseResponseSchema,
@@ -35,44 +35,40 @@ parent_payload = ParentConfiguration(
 icon_payload = IconConfiguration(
     type="emoji", emoji="🎮"
 )  # The icon is the icon that will be displayed on the database.
-text = TextConfiguration(
-    content="Game"
-)  # The text is the text that will be displayed as the title of the database.
+text = TextConfiguration(content="Game")  # The text is the text that will be displayed as the title of the database.
 content = ContentConfiguration(
     type="text", plain_text="Game", href="https://www.google.com", text=text
 )  # The content has other info's of the title.
 
 # Cover schema
-cover = CoverConfiguration(
-    type="external", external=ExternalConfiguration(url="https://www.google.com")
-)
+cover = CoverConfiguration(type="external", external=ExternalConfiguration(url="https://www.google.com"))
 
 # # Forming select options schema
 properties = {
-    "Name": TitleConfiguration().dict(),
-    "Description": RichTextConfiguration().dict(),
-    "In stock": CheckboxConfiguration().dict(),
+    "Name": TitleConfiguration().model_dump(),
+    "Description": RichTextConfiguration().model_dump(),
+    "In stock": CheckboxConfiguration().model_dump(),
     "Food Group": SelectConfiguration(
-        select=SelecOptionsListConfig(
+        select=SelectOptionsListConfig(
             options=[
                 SelectOptionsConfiguration(color="green", name="Code"),
                 SelectOptionsConfiguration(color="red", name="Game"),
             ],
         )
-    ).dict(),
-    "Cusines": MultiSelectConfiguration(
-        multi_select=SelecOptionsListConfig(
+    ).model_dump(),
+    "Cuisines": MultiSelectConfiguration(
+        multi_select=SelectOptionsListConfig(
             options=[
                 SelectOptionsConfiguration(color="orange", name="Italian"),
                 SelectOptionsConfiguration(color="blue", name="French"),
             ],
         )
-    ).dict(),
+    ).model_dump(),
     "Price": NumberConfiguration(
         number=NumberFormatConfiguration(
             format=NumberFormats.NUMBER_WITH_COMMAS,
         ),
-    ).dict(),
+    ).model_dump(),
 }
 create_database_payload = DatabasePropertyConfiguration(
     title=[content],
@@ -86,4 +82,4 @@ response: CreateDatabaseResponseSchema = py_notion_client.database.create_databa
     payload=create_database_payload,
 )
 
-print(response.json(indent=4))
+print(response.model_dump_json(indent=4))

@@ -1,4 +1,6 @@
-from pydantic import BaseSettings
+from functools import lru_cache
+
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 # Create configuration with pydantic BaseSettings https://pydantic-docs.helpmanual.io/usage/settings/.
@@ -7,9 +9,15 @@ class Config(BaseSettings):
     database_id: str
     page_id: str
 
-    class Config:
-        env_file = ".env"
-        validate_assignment = True
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+    )
 
 
-base_config = Config()
+@lru_cache
+def get_config() -> Config:
+    return Config()
+
+
+base_config = get_config()

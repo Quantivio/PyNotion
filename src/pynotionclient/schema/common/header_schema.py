@@ -24,7 +24,7 @@ class HeaderSchema(pydantic.BaseModel):
     authorization: str = Field(
         default="Bearer ",
         alias="Authorization",
-        title="Authorziation",
+        title="Authorization",
         description="Value which defines the authorization token to be used.",
     )
     """

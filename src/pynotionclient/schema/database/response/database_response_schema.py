@@ -31,28 +31,28 @@ class DefaultSettingsSchema(pydantic.BaseModel):
 
 
 def generate_dynamic_properties_schema(properties_data: dict) -> Any:
-    """Generate a dynamic schema model based on the keys recieved from Notions Response"""
+    """Generate a dynamic schema model based on the keys received from Notions Response"""
     properties_schema = {}
     for key, value in properties_data.items():
         defaults = DefaultSettingsSchema(alias=key, title=key)
         if value["type"] == "select":
-            properties_schema[key] = (SelectSchema, defaults.dict())
+            properties_schema[key] = (SelectSchema, defaults.model_dump())
         elif value["type"] == "number":
-            properties_schema[key] = (NumberSchema, defaults.dict())
+            properties_schema[key] = (NumberSchema, defaults.model_dump())
         elif value["type"] == "people":
-            properties_schema[key] = (PersonSchema, defaults.dict())
+            properties_schema[key] = (PersonSchema, defaults.model_dump())
         elif value["type"] == "checkbox":
-            properties_schema[key] = (CheckboxSchema, defaults.dict())
+            properties_schema[key] = (CheckboxSchema, defaults.model_dump())
         elif value["type"] == "multi_select":
-            properties_schema[key] = (MultiSelectSchema, defaults.dict())
+            properties_schema[key] = (MultiSelectSchema, defaults.model_dump())
         elif value["type"] == "status":
-            properties_schema[key] = (StatusSchema, defaults.dict())
+            properties_schema[key] = (StatusSchema, defaults.model_dump())
         elif value["type"] == "date":
-            properties_schema[key] = (DateSchema, defaults.dict())
+            properties_schema[key] = (DateSchema, defaults.model_dump())
         elif value["type"] == "title":
-            properties_schema[key] = (TitleSchema, defaults.dict())
+            properties_schema[key] = (TitleSchema, defaults.model_dump())
         elif value["type"] == "rich_text":
-            properties_schema[key] = (RichTextSchema, defaults.dict())
+            properties_schema[key] = (RichTextSchema, defaults.model_dump())
         else:
             raise ValueError(f"Unknown type: {value['type']}")
 
@@ -64,7 +64,7 @@ def generate_dynamic_result_schema(properties_schema: Any) -> type[ResultSchema]
     return pydantic.create_model(
         "NotionDatabaseResponseSchema",
         __base__=ResultSchema,
-        properties=(properties_schema, defaults.dict()),
+        properties=(properties_schema, defaults.model_dump()),
     )
 
 
@@ -75,5 +75,5 @@ def generate_dynamic_notion_response_schema(
     return pydantic.create_model(
         "NotionDatabaseResponseSchema",
         __base__=NotionDatabaseResponseSchema,
-        results=(list[result_schema], defaults.dict()),
+        results=(list[result_schema], defaults.model_dump()),
     )

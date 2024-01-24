@@ -1,7 +1,7 @@
 from pynotionclient.schema.database.response.common_filter_schema import (
-    EqualsFilter,
-    EmptyFilter,
     ContainsFilter,
+    EmptyFilter,
+    EqualsFilter,
 )
 
 

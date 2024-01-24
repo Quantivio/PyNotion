@@ -6,31 +6,31 @@ from pynotionclient.schema.database.mention_schema_config import (
     UPDMentionSchemaConfigConfigConfig,
 )
 from pynotionclient.schema.database.request.common_property_configurations import (
-    TitleConfiguration,
-    RichTextConfiguration,
     CheckboxConfiguration,
     DateConfiguration,
-    FileConfiguration,
-    UrlConfiguration,
     EmailConfiguration,
+    FileConfiguration,
     PeopleConfiguration,
     PhoneNumberConfiguration,
+    RichTextConfiguration,
+    TitleConfiguration,
+    UrlConfiguration,
 )
 from pynotionclient.schema.database.request.content_configuration import (
-    TextConfiguration,
     ContentConfiguration,
+    TextConfiguration,
 )
 from pynotionclient.schema.database.request.database_property_configuration import (
-    DatabasePropertyConfiguration,
-    ParentConfiguration,
-    ExternalConfiguration,
     CoverConfiguration,
+    DatabasePropertyConfiguration,
+    ExternalConfiguration,
     IconConfiguration,
+    ParentConfiguration,
 )
 from pynotionclient.schema.database.request.number_configuration import (
     NumberConfiguration,
-    NumberFormats,
     NumberFormatConfiguration,
+    NumberFormats,
 )
 from pynotionclient.schema.database.request.relation_configuration import (
     DatabaseRelationTypes,
@@ -38,23 +38,21 @@ from pynotionclient.schema.database.request.relation_configuration import (
 )
 from pynotionclient.schema.database.request.select_configuration import (
     MultiSelectConfiguration,
-)
-from pynotionclient.schema.database.request.select_configuration import (
-    SelectOptionsConfiguration,
     SelectConfiguration,
-    SelecOptionsListConfig,
+    SelectOptionsConfiguration,
+    SelectOptionsListConfig,
 )
 from pynotionclient.schema.database.response.check_box_schema import CheckboxSchema
 from pynotionclient.schema.database.response.common_filter_schema import (
-    EqualsFilter,
-    EmptyFilter,
     ContainsFilter,
+    EmptyFilter,
+    EqualsFilter,
 )
 from pynotionclient.schema.database.response.common_info_schema import (
-    IdTypeSchema,
-    IdTypeNameSchema,
     IdNameSchema,
     IDSchema,
+    IdTypeNameSchema,
+    IdTypeSchema,
 )
 from pynotionclient.schema.database.response.content_schema import ContentSchema
 from pynotionclient.schema.database.response.create_database_response_schema import (
@@ -63,15 +61,15 @@ from pynotionclient.schema.database.response.create_database_response_schema imp
 from pynotionclient.schema.database.response.database_response_schema import (
     NotionDatabaseResponseSchema,
     generate_dynamic_notion_response_schema,
-    generate_dynamic_result_schema,
     generate_dynamic_properties_schema,
+    generate_dynamic_result_schema,
 )
 from pynotionclient.schema.database.response.date_filter_schema import DateFilter
 from pynotionclient.schema.database.response.filter_request_schema import (
-    PropertyFilter,
-    CompoundFilterOR,
     CompoundFilterAND,
+    CompoundFilterOR,
     Filter,
+    PropertyFilter,
 )
 from pynotionclient.schema.database.response.multi_select_schema import (
     MultiSelectSchema,
@@ -80,12 +78,12 @@ from pynotionclient.schema.database.response.number_filter_schema import NumberF
 from pynotionclient.schema.database.response.number_schema import NumberSchema
 from pynotionclient.schema.database.response.other_filters_schema import (
     CheckboxFilter,
-    PeopleFilter,
-    StatusFilter,
     FileFilter,
-    SelectFilter,
-    RelationFilter,
     MultiSelectFilter,
+    PeopleFilter,
+    RelationFilter,
+    SelectFilter,
+    StatusFilter,
 )
 from pynotionclient.schema.database.response.person_schema import (
     PersonEmailSchema,
@@ -109,7 +107,7 @@ __all__ = [
     "DatabasePropertyConfiguration",
     "SelectOptionsConfiguration",
     "SelectConfiguration",
-    "SelecOptionsListConfig",
+    "SelectOptionsListConfig",
     "TitleConfiguration",
     "RichTextConfiguration",
     "CheckboxConfiguration",

@@ -1,6 +1,7 @@
 # Welcome to the PyNotion Contribution Community!
 
-We're thrilled that you're interested in helping out with the development of **PyNotion**! Every contribution, no matter how small, makes a difference and helps keep this project moving forward.
+We're thrilled that you're interested in helping out with the development of **PyNotion**! Every contribution, no matter
+how small, makes a difference and helps keep this project moving forward.
 
 Here's what you need to know to get started:
 
@@ -31,6 +32,7 @@ Here's what you need to do to submit a pull request:
 3. Submit a pull request and assign at least one reviewer.
 4. Respond to feedback from the review and make any necessary changes.
 
-Before submitting your pull request, please make sure that your changes align with the [Code of Conduct](https://github.com/pythonhubdev/PyNotion/blob/main/CODE_OF_CONDUCT.md).
+Before submitting your pull request, please make sure that your changes align with
+the [Code of Conduct](https://github.com/pythonhubdev/PyNotion/blob/main/CODE_OF_CONDUCT.md).
 
 Thanks for your support, and happy coding!

@@ -1,6 +1,6 @@
 class InvalidTokenException(Exception):
     def __init__(self):
-        self.message = "Invalid API Token provided. Cannot intialize PyNotion Client."
+        self.message = "Invalid API Token provided. Cannot initialize PyNotion Client."
         super().__init__(self.message)
 
     def __str__(self):

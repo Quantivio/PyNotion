@@ -1,56 +1,56 @@
-import pydantic
+from pydantic import BaseModel
 
 
-class TitleConfiguration(pydantic.BaseModel):
+class TitleConfiguration(BaseModel):
     title: dict = {}
 
 
-class RichTextConfiguration(pydantic.BaseModel):
+class RichTextConfiguration(BaseModel):
     rich_text: dict = {}
 
 
-class CheckboxConfiguration(pydantic.BaseModel):
+class CheckboxConfiguration(BaseModel):
     checkbox: dict = {}
 
 
-class DateConfiguration(pydantic.BaseModel):
+class DateConfiguration(BaseModel):
     date: dict = {}
 
 
-class PeopleConfiguration(pydantic.BaseModel):
+class PeopleConfiguration(BaseModel):
     people: dict = {}
 
 
-class FileConfiguration(pydantic.BaseModel):
+class FileConfiguration(BaseModel):
     file: dict = {}
 
 
-class UrlConfiguration(pydantic.BaseModel):
+class UrlConfiguration(BaseModel):
     url: dict = {}
 
 
-class EmailConfiguration(pydantic.BaseModel):
+class EmailConfiguration(BaseModel):
     email: dict = {}
 
 
-class PhoneNumberConfiguration(pydantic.BaseModel):
+class PhoneNumberConfiguration(BaseModel):
     phone_number: dict = {}
 
 
-class CreatedTimeConfiguration(pydantic.BaseModel):
+class CreatedTimeConfiguration(BaseModel):
     created_time: dict = {}
 
 
-class CreatedByConfiguration(pydantic.BaseModel):
+class CreatedByConfiguration(BaseModel):
     created_by: dict = {}
 
 
-class LastEditedTimeConfiguration(pydantic.BaseModel):
+class LastEditedTimeConfiguration(BaseModel):
     last_edited_time: dict = {}
 
 
-class LastEditedByConfiguration(pydantic.BaseModel):
+class LastEditedByConfiguration(BaseModel):
     last_edited_by: dict = {}
 
 
-# TODO: Add forumula, rollup, and relation
+# TODO: Add formula, rollup, and relation

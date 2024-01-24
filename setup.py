@@ -1,7 +1,7 @@
 # Adding setup file for backward compatability if needed
 # Will be removed in future versions
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 long_description: str
 
@@ -17,7 +17,7 @@ classifiers = [
 
 setup(
     name="PyNotion",
-    version="0.0.9-dev1",
+    version="0.0.9-dev2",
     description="Python wrapper for Notion API",
     long_description=long_description,
     long_description_content_type="text/markdown",
