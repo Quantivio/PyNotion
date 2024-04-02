@@ -1,8 +1,7 @@
-from typing import Optional
+from typing import Any, Optional
 
 import pydantic
 from pydantic import Field
-
 from pynotionclient.schema.database.response.date_filter_schema import DateFilter
 from pynotionclient.schema.database.response.number_filter_schema import NumberFilter
 from pynotionclient.schema.database.response.other_filters_schema import (
@@ -36,7 +35,8 @@ class PropertyFilter(pydantic.BaseModel):
 
 class CompoundFilterOR(pydantic.BaseModel):
     or_filter: Optional[list[PropertyFilter]] = Field(
-        None, alias="or",
+        None,
+        alias="or",
         title="or",
         description="OR compound logical filter operator to pass multiple filter as list",
     )
@@ -44,7 +44,8 @@ class CompoundFilterOR(pydantic.BaseModel):
 
 class CompoundFilterAND(pydantic.BaseModel):
     and_filter: Optional[list[PropertyFilter]] = Field(
-        None, alias="and",
+        None,
+        alias="and",
         title="and",
         description="AND compound logical filter operator to pass multiple filter as list",
     )
@@ -52,4 +53,4 @@ class CompoundFilterAND(pydantic.BaseModel):
 
 class Filter(pydantic.BaseModel):
     page_size: int
-    filter: Optional[PropertyFilter | TimeStampFilter | CompoundFilterOR | CompoundFilterAND | dict] = None
+    filter: Optional[PropertyFilter | TimeStampFilter | CompoundFilterOR | CompoundFilterAND | dict[str, Any]] = None

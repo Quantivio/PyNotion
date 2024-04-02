@@ -1,7 +1,6 @@
 from typing import Any
 
 import pydantic
-
 from pynotionclient.schema.database.response.check_box_schema import CheckboxSchema
 from pynotionclient.schema.database.response.date_schema import DateSchema
 from pynotionclient.schema.database.response.multi_select_schema import (
@@ -30,7 +29,7 @@ class DefaultSettingsSchema(pydantic.BaseModel):
     required: bool = True
 
 
-def generate_dynamic_properties_schema(properties_data: dict) -> Any:
+def generate_dynamic_properties_schema(properties_data: dict[str, Any]) -> Any:
     """Generate a dynamic schema model based on the keys received from Notions Response"""
     properties_schema = {}
     for key, value in properties_data.items():
@@ -56,7 +55,7 @@ def generate_dynamic_properties_schema(properties_data: dict) -> Any:
         else:
             raise ValueError(f"Unknown type: {value['type']}")
 
-    return pydantic.create_model("PropertiesSchema", **properties_schema)
+    return pydantic.create_model("PropertiesSchema", **properties_schema)  # type: ignore
 
 
 def generate_dynamic_result_schema(properties_schema: Any) -> type[ResultSchema]:
@@ -65,7 +64,7 @@ def generate_dynamic_result_schema(properties_schema: Any) -> type[ResultSchema]
         "NotionDatabaseResponseSchema",
         __base__=ResultSchema,
         properties=(properties_schema, defaults.model_dump()),
-    )
+    )  # type: ignore
 
 
 def generate_dynamic_notion_response_schema(

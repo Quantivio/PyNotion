@@ -227,4 +227,3 @@ Follow these steps to set up your development environment for PyNotion:
 
 We welcome contributions to PyNotion! Before making a major change, please open an issue to discuss your proposed
 changes. To submit a contribution, simply create a pull request.
-

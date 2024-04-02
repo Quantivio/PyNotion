@@ -33,10 +33,10 @@ class PyNotion:
         self.comment: NotionComment
         self.__initialize_modules()
 
-    def __initialize_modules(self):
+    def __initialize_modules(self) -> None:
         # Initialize all the classes that correspond to different modules with secret token
-        self.database: NotionDatabase = NotionDatabase(token=self.token)
-        self.page: NotionPage = NotionPage(token=self.token)
-        self.block: NotionBlock = NotionBlock(token=self.token)
-        self.user: NotionUser = NotionUser(token=self.token)
-        self.comment: NotionComment = NotionComment(token=self.token)
+        self.database = NotionDatabase(token=self.token)
+        self.page = NotionPage(token=self.token)
+        self.block = NotionBlock(token=self.token)
+        self.user = NotionUser(token=self.token)
+        self.comment = NotionComment(token=self.token)

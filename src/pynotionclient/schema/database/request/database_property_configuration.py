@@ -1,8 +1,7 @@
-from typing import Any, Optional
+from typing import Any
 
 import pydantic
 from pydantic import field_validator
-
 from pynotionclient.schema.database.request.content_configuration import (
     ContentConfiguration,
 )
@@ -18,7 +17,7 @@ class IconConfiguration(pydantic.BaseModel):
     emoji: str
 
     @field_validator("type")
-    def validate_emoji_type(cls, emoji_type):  # noqa
+    def validate_emoji_type(cls, emoji_type):  # type: ignore
         if emoji_type != "emoji":
             raise ValueError("Emoji type must be emoji")
 

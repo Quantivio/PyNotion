@@ -1,7 +1,6 @@
 from typing import Optional
 
 import pydantic
-
 from pynotionclient.schema.database.response.common_info_schema import IDSchema
 from pynotionclient.schema.database.response.person_schema import PersonEmailSchema
 

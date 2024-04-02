@@ -1,24 +1,69 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
 repos:
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
-    hooks:
-      - id: mypy
-        name: mypy
-        description: "Mypy static type checker"
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
-  - repo: https://github.com/psf/black
-    rev: 23.12.1
-    hooks:
-      - id: black
-        name: black
-        entry: black
-        description: "Black: The uncompromising code formatter."
-        language: python
-        language_version: python3.10
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: "v0.1.14"
-    hooks:
-      - id: ruff
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v2.4.0
+  hooks:
+  - id: check-ast
+  - id: trailing-whitespace
+  - id: check-toml
+  - id: end-of-file-fixer
+
+- repo: https://github.com/asottile/add-trailing-comma
+  rev: v2.1.0
+  hooks:
+  - id: add-trailing-comma
+
+- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+  rev: v2.1.0
+  hooks:
+  - id: pretty-format-yaml
+    args:
+    - --autofix
+    - --preserve-quotes
+    - --indent=2
+
+- repo: local
+  hooks:
+  - id: ruff
+    name: ruff
+    description: "Run 'ruff' for extremely fast Python linting"
+    entry: ruff check --force-exclude
+    language: python
+    types_or: [python, pyi]
+    args: []
+    require_serial: true
+    additional_dependencies: []
+    minimum_pre_commit_version: "2.9.2"
+
+  - id: ruff-format
+    name: ruff-format
+    description: "Run 'ruff format' for extremely fast Python formatting"
+    entry: ruff format --force-exclude
+    language: python
+    types_or: [python, pyi]
+    args: []
+    require_serial: true
+    additional_dependencies: []
+    minimum_pre_commit_version: "2.9.2"
+
+  - id: black
+    name: Format with Black
+    entry: poetry run black
+    language: system
+    types: [python]
+
+  - id: isort
+    name: isort
+    entry: poetry run isort
+    language: system
+    types: [python]
+
+  - id: mypy
+    name: Validate types with MyPy
+    entry: poetry run mypy
+    language: system
+    types: [python]
+    pass_filenames: false
+    args:
+    - "src"

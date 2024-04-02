@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-
 from examples.config import base_config
 from pynotionclient import PyNotion
 from pynotionclient.schema.database import (
@@ -30,14 +29,19 @@ py_notion_client = PyNotion(token=base_config.notion_secret_token)
 
 # # Create database payload
 parent_payload = ParentConfiguration(
-    type="page_id", page_id=base_config.page_id
+    type="page_id",
+    page_id=base_config.page_id,
 )  # The parent is the page where the database will be created.
 icon_payload = IconConfiguration(
-    type="emoji", emoji="🎮"
+    type="emoji",
+    emoji="🎮",
 )  # The icon is the icon that will be displayed on the database.
 text = TextConfiguration(content="Game")  # The text is the text that will be displayed as the title of the database.
 content = ContentConfiguration(
-    type="text", plain_text="Game", href="https://www.google.com", text=text
+    type="text",
+    plain_text="Game",
+    href="https://www.google.com",
+    text=text,
 )  # The content has other info's of the title.
 
 # Cover schema
@@ -54,7 +58,7 @@ properties = {
                 SelectOptionsConfiguration(color="green", name="Code"),
                 SelectOptionsConfiguration(color="red", name="Game"),
             ],
-        )
+        ),
     ).model_dump(),
     "Cuisines": MultiSelectConfiguration(
         multi_select=SelectOptionsListConfig(
@@ -62,7 +66,7 @@ properties = {
                 SelectOptionsConfiguration(color="orange", name="Italian"),
                 SelectOptionsConfiguration(color="blue", name="French"),
             ],
-        )
+        ),
     ).model_dump(),
     "Price": NumberConfiguration(
         number=NumberFormatConfiguration(

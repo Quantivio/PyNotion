@@ -1,56 +1,58 @@
+from typing import Any
+
 from pydantic import BaseModel
 
 
 class TitleConfiguration(BaseModel):
-    title: dict = {}
+    title: dict[str, Any] = {}
 
 
 class RichTextConfiguration(BaseModel):
-    rich_text: dict = {}
+    rich_text: dict[str, Any] = {}
 
 
 class CheckboxConfiguration(BaseModel):
-    checkbox: dict = {}
+    checkbox: dict[str, Any] = {}
 
 
 class DateConfiguration(BaseModel):
-    date: dict = {}
+    date: dict[str, Any] = {}
 
 
 class PeopleConfiguration(BaseModel):
-    people: dict = {}
+    people: dict[str, Any] = {}
 
 
 class FileConfiguration(BaseModel):
-    file: dict = {}
+    file: dict[str, Any] = {}
 
 
 class UrlConfiguration(BaseModel):
-    url: dict = {}
+    url: dict[str, Any] = {}
 
 
 class EmailConfiguration(BaseModel):
-    email: dict = {}
+    email: dict[str, Any] = {}
 
 
 class PhoneNumberConfiguration(BaseModel):
-    phone_number: dict = {}
+    phone_number: dict[str, Any] = {}
 
 
 class CreatedTimeConfiguration(BaseModel):
-    created_time: dict = {}
+    created_time: dict[str, Any] = {}
 
 
 class CreatedByConfiguration(BaseModel):
-    created_by: dict = {}
+    created_by: dict[str, Any] = {}
 
 
 class LastEditedTimeConfiguration(BaseModel):
-    last_edited_time: dict = {}
+    last_edited_time: dict[str, Any] = {}
 
 
 class LastEditedByConfiguration(BaseModel):
-    last_edited_by: dict = {}
+    last_edited_by: dict[str, Any] = {}
 
 
 # TODO: Add formula, rollup, and relation

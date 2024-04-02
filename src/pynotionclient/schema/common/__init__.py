@@ -5,4 +5,5 @@ from pynotionclient.schema.common.header_schema import (
 
 __all__ = [
     "HeaderSchema",
+    "default_header_schema",
 ]

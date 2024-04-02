@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-
 from examples.config import base_config
 from pynotionclient import PyNotion
 from pynotionclient.schema.database import (
@@ -24,10 +23,12 @@ property_filter = PropertyFilter(property="Name", rich_text=rich_text_filter)
 filter_object = Filter(page_size=100, filter=property_filter)
 
 response_dict_payload: NotionDatabaseResponseSchema = py_notion_client.database.query_database(
-    database_id=base_config.database_id, payload=filter_dict
+    database_id=base_config.database_id,
+    payload=filter_dict,
 )
 response_filter_payload: NotionDatabaseResponseSchema = py_notion_client.database.query_database(
-    database_id=base_config.database_id, payload=filter_object
+    database_id=base_config.database_id,
+    payload=filter_object,
 )
 
 # Since we are using pydantic the result can be used either as on object or as a dictionary or json.
@@ -36,8 +37,8 @@ response_filter_payload: NotionDatabaseResponseSchema = py_notion_client.databas
 # For example: CustomizedSelect is the key name for the table named "CustomizedSelect" in my database.
 
 print(
-    response_dict_payload.results[0].properties.Name.json(indent=4)
+    response_dict_payload.results[0].properties.Name.json(indent=4),
 )  # Print the first result's Select property as json.
 print(
-    response_filter_payload.results[0].properties.Name.json(indent=4)
+    response_filter_payload.results[0].properties.Name.json(indent=4),
 )  # Print the first result's Select property as json.

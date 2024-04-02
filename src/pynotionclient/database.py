@@ -1,6 +1,6 @@
-import requests
-from requests import ConnectTimeout, ReadTimeout, Response, Timeout
+from typing import Any
 
+import requests
 from pynotionclient.config import Constants, Urls
 from pynotionclient.schema.common.header_schema import default_header_schema
 from pynotionclient.schema.database import (
@@ -20,6 +20,7 @@ from pynotionclient.schema.database.response.database_response_schema import (
     generate_dynamic_result_schema,
 )
 from pynotionclient.utils import logger
+from requests import ConnectTimeout, ReadTimeout, Response, Timeout
 
 
 class NotionDatabase:
@@ -29,7 +30,9 @@ class NotionDatabase:
 
     @staticmethod
     def query_database(
-        database_id: str, payload: dict | Filter, return_json: bool = False
+        database_id: str,
+        payload: dict[str, Any] | Filter,
+        return_json: bool = False,
     ) -> NotionDatabaseResponseSchema | str:
         function_name: str = "Querying Notion database"
         logger.info(
@@ -38,8 +41,8 @@ class NotionDatabase:
             function_name=function_name,
         )
         try:
-            __payload: dict | str | None = None
-            if isinstance(payload, dict) is dict:
+            __payload: dict[str, Any] | str | None = None
+            if isinstance(payload, dict):
                 __payload = payload
             elif isinstance(payload, Filter):
                 __payload = payload.model_dump(exclude_none=True, by_alias=True)
@@ -50,7 +53,7 @@ class NotionDatabase:
                 timeout=60,
             )
             json_data = response.json()
-            properties: dict | None = None
+            properties: dict[str, Any] | None = None
             if json_data is not None and len(json_data["results"][0]["properties"]) > 0:
                 properties = json_data["results"][0]["properties"]
             dynamic_properties_schema = generate_dynamic_properties_schema(properties)
@@ -73,7 +76,8 @@ class NotionDatabase:
 
     @staticmethod
     def create_database(
-        payload: dict | DatabasePropertyConfiguration, return_json: bool = False
+        payload: dict[str, Any] | DatabasePropertyConfiguration,
+        return_json: bool = False,
     ) -> CreateDatabaseResponseSchema | str:
         function_name: str = "Creating Notion database"
         logger.info(
@@ -82,7 +86,7 @@ class NotionDatabase:
             function_name=function_name,
         )
         try:
-            __payload: dict | str | None = None
+            __payload: dict[str, Any] | str | None = None
             if isinstance(payload, dict):
                 __payload = payload
             elif isinstance(payload, DatabasePropertyConfiguration):
@@ -94,7 +98,7 @@ class NotionDatabase:
                 timeout=60,
             )
             json_data = response.json()
-            properties: dict | None = None
+            properties: dict[str, Any] | None = None
             if json_data and json_data["properties"]:
                 properties = json_data["properties"]
             generate_dynamic_property_response_schema = generate_dynamic_property_create_response_schema(properties)
@@ -116,5 +120,5 @@ class NotionDatabase:
             )
             raise time_out_exception
 
-    def __add_bearer_token(self):
+    def __add_bearer_token(self) -> None:
         default_header_schema.authorization = default_header_schema.authorization + self.token

@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any, Optional
 
 import pydantic
-
+from pydantic import BaseModel
 from pynotionclient.schema.database.request.database_property_configuration import (
     CoverConfiguration,
     IconConfiguration,
@@ -17,21 +17,21 @@ from pynotionclient.schema.database.response.database_response_schema import (
 from pynotionclient.schema.database.response.select_schema import InternalSelectSchema
 
 
-class CreatedByResponseSchema(pydantic.BaseModel):
+class CreatedByResponseSchema(BaseModel):
     object: str
     id: str
 
 
-class LastEditedByResponseSchema(pydantic.BaseModel):
+class LastEditedByResponseSchema(BaseModel):
     object: str
     id: str
 
 
-class Number(pydantic.BaseModel):
+class Number(BaseModel):
     format: NumberFormats
 
 
-class CreateDatabaseResponseSchema(pydantic.BaseModel):
+class CreateDatabaseResponseSchema(BaseModel):
     object: str
     id: str
     cover: CoverConfiguration
@@ -41,7 +41,7 @@ class CreateDatabaseResponseSchema(pydantic.BaseModel):
     last_edited_by: LastEditedByResponseSchema
     last_edited_time: str
     title: list[ContentSchema]
-    description: list
+    description: list[Any]
     is_inline: bool
     properties: Any = None
     parent: ParentConfiguration
@@ -49,13 +49,13 @@ class CreateDatabaseResponseSchema(pydantic.BaseModel):
     archived: bool
 
 
-class CommonCreateResponseSchema(pydantic.pydantic.BaseModel):
+class CommonCreateResponseSchema(BaseModel):
     id: Optional[str]
     name: Optional[str]
     type: Optional[str]
 
 
-def generate_dynamic_property_create_response_schema(properties: dict):
+def generate_dynamic_property_create_response_schema(properties: dict[str, Any]) -> type[CommonCreateResponseSchema]:
     properties_schema = {}
     for key, value in properties.items():
         defaults = DefaultSettingsSchema(alias=key, title=key)
@@ -76,21 +76,21 @@ def generate_dynamic_property_create_response_schema(properties: dict):
         ]:
             common_dynamic_schema = pydantic.create_model(
                 key, __base__=CommonCreateResponseSchema, **{value["type"]: {}}
-            )
+            )  # type: ignore
             properties_schema[key] = (common_dynamic_schema, defaults.model_dump())
         elif value["type"] in ["select", "multi_select"]:
             dynamic_select_schema = pydantic.create_model(
                 key,
                 __base__=CommonCreateResponseSchema,
                 **{value["type"]: {"options": list[InternalSelectSchema]}},
-            )
+            )  # type: ignore
             properties_schema[key] = (dynamic_select_schema, defaults.model_dump())
         elif value["type"] == "number":
             dynamic_number_schema = pydantic.create_model(
                 key, __base__=CommonCreateResponseSchema, **{value["type"]: Number}
-            )
+            )  # type: ignore
             properties_schema[key] = (dynamic_number_schema, defaults.model_dump())
-    return pydantic.create_model("CreatePropertiesSchema", **properties_schema)
+    return pydantic.create_model("CreatePropertiesSchema", **properties_schema)  # type: ignore
 
 
 def generate_dynamic_create_notion_response_schema(
@@ -101,4 +101,4 @@ def generate_dynamic_create_notion_response_schema(
         "CreateDatabaseResponseSchema",
         __base__=CreateDatabaseResponseSchema,
         properties=(result_schema, defaults.model_dump()),
-    )
+    )  # type: ignore
