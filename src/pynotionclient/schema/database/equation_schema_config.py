@@ -4,4 +4,4 @@ import pydantic
 
 
 class EquationSchemaConfig(pydantic.BaseModel):
-    expression: Optional[str]
+    expression: Optional[str] = None

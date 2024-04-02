@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Optional
 
 import pydantic
 from pydantic import field_validator

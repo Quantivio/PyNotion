@@ -7,23 +7,23 @@ from pynotionclient.schema.database.response.person_schema import PersonEmailSch
 
 
 class UserSchemaConfig(pydantic.BaseModel):
-    id: Optional[str]
-    name: Optional[str]
-    object: Optional[str]
-    avatar_url: Optional[str]
-    person: Optional[PersonEmailSchema]
+    id: Optional[str] = None
+    name: Optional[str] = None
+    object: Optional[str] = None
+    avatar_url: Optional[str] = None
+    person: Optional[PersonEmailSchema] = None
 
 
 class DatabaseSchemaConfig(pydantic.BaseModel):
-    database: Optional[IDSchema]
+    database: Optional[IDSchema] = None
 
 
 class PageSchemaConfig(pydantic.BaseModel):
-    page: Optional[IDSchema]
+    page: Optional[IDSchema] = None
 
 
 class UserIDSchemaConfig(pydantic.BaseModel):
-    user: Optional[IDSchema]
+    user: Optional[IDSchema] = None
 
 
 # User, Page, database mention schema

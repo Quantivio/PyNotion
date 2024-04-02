@@ -43,7 +43,7 @@ class CreateDatabaseResponseSchema(pydantic.BaseModel):
     title: list[ContentSchema]
     description: list
     is_inline: bool
-    properties: Any
+    properties: Any = None
     parent: ParentConfiguration
     url: str
     archived: bool

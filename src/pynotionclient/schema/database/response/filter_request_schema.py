@@ -23,20 +23,20 @@ from pynotionclient.schema.database.response.time_stamp_filter_schema import (
 
 class PropertyFilter(pydantic.BaseModel):
     property: str
-    rich_text: Optional[RichTextFilter]
-    number: Optional[NumberFilter]
-    checkbox: Optional[CheckboxFilter]
-    select: Optional[SelectFilter]
-    multi_select: Optional[MultiSelectFilter]
-    date: Optional[DateFilter]
-    people: Optional[PeopleFilter]
-    file: Optional[FileFilter]
-    relation: Optional[RelationFilter]
+    rich_text: Optional[RichTextFilter] = None
+    number: Optional[NumberFilter] = None
+    checkbox: Optional[CheckboxFilter] = None
+    select: Optional[SelectFilter] = None
+    multi_select: Optional[MultiSelectFilter] = None
+    date: Optional[DateFilter] = None
+    people: Optional[PeopleFilter] = None
+    file: Optional[FileFilter] = None
+    relation: Optional[RelationFilter] = None
 
 
 class CompoundFilterOR(pydantic.BaseModel):
     or_filter: Optional[list[PropertyFilter]] = Field(
-        alias="or",
+        None, alias="or",
         title="or",
         description="OR compound logical filter operator to pass multiple filter as list",
     )
@@ -44,7 +44,7 @@ class CompoundFilterOR(pydantic.BaseModel):
 
 class CompoundFilterAND(pydantic.BaseModel):
     and_filter: Optional[list[PropertyFilter]] = Field(
-        alias="and",
+        None, alias="and",
         title="and",
         description="AND compound logical filter operator to pass multiple filter as list",
     )

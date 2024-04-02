@@ -14,17 +14,17 @@ from pynotionclient.schema.database.mention_schema_config import (
 
 class TextConfiguration(pydantic.BaseModel):
     content: str
-    link: Optional[str]
+    link: Optional[str] = None
 
 
 class ContentConfiguration(pydantic.BaseModel):
-    type: Optional[str]
-    text: Optional[TextConfiguration]
-    mention: Optional[UPDMentionSchemaConfigConfigConfig]
-    annotations: Optional[AnnotationsSchemaConfig]
-    equation: Optional[EquationSchemaConfig]
+    type: Optional[str] = None
+    text: Optional[TextConfiguration] = None
+    mention: Optional[UPDMentionSchemaConfigConfigConfig] = None
+    annotations: Optional[AnnotationsSchemaConfig] = None
+    equation: Optional[EquationSchemaConfig] = None
     plain_text: str
-    href: Any
+    href: Any = None
 
     @field_validator("type")
     def validate_type(cls, content_type):  # noqa

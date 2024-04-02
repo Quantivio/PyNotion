@@ -7,8 +7,8 @@ from pynotionclient.schema.database.response.common_info_schema import IdTypeSch
 
 class InternalDateSchema(pydantic.BaseModel):
     start: str
-    end: Any
-    time_zone: Any
+    end: Any = None
+    time_zone: Any = None
 
 
 class DateSchema(IdTypeSchema):

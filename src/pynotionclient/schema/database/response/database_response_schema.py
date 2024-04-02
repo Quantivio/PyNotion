@@ -21,7 +21,7 @@ class NotionDatabaseResponseSchema(pydantic.BaseModel):
     results: list[ResultSchema]
     has_more: bool
     type: str
-    page: Any
+    page: Any = None
 
 
 class DefaultSettingsSchema(pydantic.BaseModel):

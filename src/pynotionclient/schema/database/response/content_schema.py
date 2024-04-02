@@ -13,14 +13,14 @@ from pynotionclient.schema.database.mention_schema_config import (
 
 class TextSchema(pydantic.BaseModel):
     content: str
-    link: Any
+    link: Any = None
 
 
 class ContentSchema(pydantic.BaseModel):
-    type: Optional[str]
-    text: Optional[TextSchema]
-    mention: Optional[UPDMentionSchemaConfigConfigConfig]
-    annotations: Optional[AnnotationsSchemaConfig]
-    equation: Optional[EquationSchemaConfig]
+    type: Optional[str] = None
+    text: Optional[TextSchema] = None
+    mention: Optional[UPDMentionSchemaConfigConfigConfig] = None
+    annotations: Optional[AnnotationsSchemaConfig] = None
+    equation: Optional[EquationSchemaConfig] = None
     plain_text: str
-    href: Any
+    href: Any = None

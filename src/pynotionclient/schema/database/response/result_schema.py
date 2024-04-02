@@ -10,7 +10,7 @@ class AuthoredBySchema(pydantic.BaseModel):
 
 class ParentSchema(pydantic.BaseModel):
     type: str
-    database_id: Optional[str]
+    database_id: Optional[str] = None
 
 
 class ResultSchema(pydantic.BaseModel):
@@ -20,8 +20,8 @@ class ResultSchema(pydantic.BaseModel):
     last_edited_time: str
     created_by: AuthoredBySchema
     last_edited_by: AuthoredBySchema
-    cover: Optional[Any]
-    icon: Optional[Any]
+    cover: Optional[Any] = None
+    icon: Optional[Any] = None
     parent: ParentSchema
-    properties: Any
+    properties: Any = None
     archived: bool
