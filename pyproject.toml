@@ -7,8 +7,8 @@ license = "MIT"
 readme = "README.md"
 keywords = ["notion", "api", "wrapper"]
 packages = [{ include = "pynotionclient", from = "src" }]
-repository = "https://github.com/pythonhubpy/PyNotion"
-homepage = "https://github.com/pythonhubpy/PyNotion"
+repository = "https://github.com/quantivio/PyNotion"
+homepage = "https://github.com/quantivio/PyNotion"
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
@@ -39,7 +39,7 @@ preview = true
 [tool.isort]
 profile = "black"
 multi_line_output = 3
-src_paths = ["data_integration_service", ]
+src_paths = ["src", ]
 
 [tool.mypy]
 strict = true
@@ -83,4 +83,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/pythonhubpy/PyNotion/issues"
+"Bug Tracker" = "https://github.com/quantivio/PyNotion/issues"
