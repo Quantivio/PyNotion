@@ -19,7 +19,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.11"
 pydantic-settings = "^2.2.1"
-pydantic = { extras = ["dotenv"], version = "^2.6.4" }
+pydantic = { extras = ["dotenv"], version = "^2.7.3" }
 requests = "^2.31.0"
 bump-pydantic = "^0.8.0"
 
