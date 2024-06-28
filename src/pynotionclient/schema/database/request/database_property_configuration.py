@@ -3,9 +3,7 @@ from typing import Any
 import pydantic
 from pydantic import field_validator
 
-from pynotionclient.schema.database.request.content_configuration import (
-    ContentConfiguration,
-)
+from pynotionclient.schema.database.request.content_configuration import ContentConfiguration
 
 
 class ParentConfiguration(pydantic.BaseModel):
@@ -17,6 +15,7 @@ class IconConfiguration(pydantic.BaseModel):
     type: str
     emoji: str
 
+    @classmethod
     @field_validator("type")
     def validate_emoji_type(cls, emoji_type):  # type: ignore
         if emoji_type != "emoji":

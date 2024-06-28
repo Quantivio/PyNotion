@@ -12,9 +12,7 @@ from pynotionclient.schema.database.request.database_property_configuration impo
 )
 from pynotionclient.schema.database.request.number_configuration import NumberFormats
 from pynotionclient.schema.database.response.content_schema import ContentSchema
-from pynotionclient.schema.database.response.database_response_schema import (
-    DefaultSettingsSchema,
-)
+from pynotionclient.schema.database.response.database_response_schema import DefaultSettingsSchema
 from pynotionclient.schema.database.response.select_schema import InternalSelectSchema
 
 
@@ -76,7 +74,9 @@ def generate_dynamic_property_create_response_schema(properties: dict[str, Any])
             "last_edited_by",
         ]:
             common_dynamic_schema = pydantic.create_model(
-                key, __base__=CommonCreateResponseSchema, **{value["type"]: {}}
+                key,
+                __base__=CommonCreateResponseSchema,
+                **{value["type"]: {}},
             )  # type: ignore
             properties_schema[key] = (common_dynamic_schema, defaults.model_dump())
         elif value["type"] in ["select", "multi_select"]:
@@ -88,7 +88,9 @@ def generate_dynamic_property_create_response_schema(properties: dict[str, Any])
             properties_schema[key] = (dynamic_select_schema, defaults.model_dump())
         elif value["type"] == "number":
             dynamic_number_schema = pydantic.create_model(
-                key, __base__=CommonCreateResponseSchema, **{value["type"]: Number}
+                key,
+                __base__=CommonCreateResponseSchema,
+                **{value["type"]: Number},
             )  # type: ignore
             properties_schema[key] = (dynamic_number_schema, defaults.model_dump())
     return pydantic.create_model("CreatePropertiesSchema", **properties_schema)  # type: ignore

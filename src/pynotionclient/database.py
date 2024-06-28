@@ -107,7 +107,7 @@ class NotionDatabase:
                 generate_dynamic_create_notion_response_schema(generate_dynamic_property_response_schema)
             )
             database_response: CreateDatabaseResponseSchema = dynamic_create_notion_database_response_schema(
-                **json_data
+                **json_data,
             )
             if return_json:
                 return database_response.model_dump_json()

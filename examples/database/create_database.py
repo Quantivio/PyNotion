@@ -21,9 +21,7 @@ from pynotionclient.schema.database import (
     TextConfiguration,
     TitleConfiguration,
 )
-from pynotionclient.schema.database.response.create_database_response_schema import (
-    CreateDatabaseResponseSchema,
-)
+from pynotionclient.schema.database.response.create_database_response_schema import CreateDatabaseResponseSchema
 
 load_dotenv()
 py_notion_client = PyNotion(token=base_config.notion_secret_token)

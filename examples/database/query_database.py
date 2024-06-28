@@ -2,12 +2,7 @@ from dotenv import load_dotenv
 from examples.config import base_config
 
 from pynotionclient import PyNotion
-from pynotionclient.schema.database import (
-    Filter,
-    NotionDatabaseResponseSchema,
-    PropertyFilter,
-    RichTextFilter,
-)
+from pynotionclient.schema.database import Filter, NotionDatabaseResponseSchema, PropertyFilter, RichTextFilter
 
 load_dotenv()
 py_notion_client = PyNotion(token=base_config.notion_secret_token)

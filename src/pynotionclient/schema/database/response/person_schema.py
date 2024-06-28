@@ -1,9 +1,6 @@
 import pydantic
 
-from pynotionclient.schema.database.response.common_info_schema import (
-    IdTypeNameSchema,
-    IdTypeSchema,
-)
+from pynotionclient.schema.database.response.common_info_schema import IdTypeNameSchema, IdTypeSchema
 
 
 class PersonEmailSchema(pydantic.BaseModel):

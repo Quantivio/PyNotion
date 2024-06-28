@@ -4,9 +4,7 @@ import pydantic
 
 from pynotionclient.schema.database.response.check_box_schema import CheckboxSchema
 from pynotionclient.schema.database.response.date_schema import DateSchema
-from pynotionclient.schema.database.response.multi_select_schema import (
-    MultiSelectSchema,
-)
+from pynotionclient.schema.database.response.multi_select_schema import MultiSelectSchema
 from pynotionclient.schema.database.response.number_schema import NumberSchema
 from pynotionclient.schema.database.response.person_schema import PersonSchema
 from pynotionclient.schema.database.response.result_schema import ResultSchema

@@ -2,13 +2,9 @@ from typing import Any, Optional
 
 import pydantic
 
-from pynotionclient.schema.database.annotations_schema_config import (
-    AnnotationsSchemaConfig,
-)
+from pynotionclient.schema.database.annotations_schema_config import AnnotationsSchemaConfig
 from pynotionclient.schema.database.equation_schema_config import EquationSchemaConfig
-from pynotionclient.schema.database.mention_schema_config import (
-    UPDMentionSchemaConfigConfigConfig,
-)
+from pynotionclient.schema.database.mention_schema_config import UPDMentionSchemaConfigConfigConfig
 
 
 class TextSchema(pydantic.BaseModel):

@@ -13,12 +13,8 @@ from pynotionclient.schema.database.response.other_filters_schema import (
     RelationFilter,
     SelectFilter,
 )
-from pynotionclient.schema.database.response.rich_text_filter_schema import (
-    RichTextFilter,
-)
-from pynotionclient.schema.database.response.time_stamp_filter_schema import (
-    TimeStampFilter,
-)
+from pynotionclient.schema.database.response.rich_text_filter_schema import RichTextFilter
+from pynotionclient.schema.database.response.time_stamp_filter_schema import TimeStampFilter
 
 
 class PropertyFilter(pydantic.BaseModel):

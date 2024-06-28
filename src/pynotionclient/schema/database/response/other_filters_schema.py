@@ -1,8 +1,4 @@
-from pynotionclient.schema.database.response.common_filter_schema import (
-    ContainsFilter,
-    EmptyFilter,
-    EqualsFilter,
-)
+from pynotionclient.schema.database.response.common_filter_schema import ContainsFilter, EmptyFilter, EqualsFilter
 
 
 class CheckboxFilter(EqualsFilter):
