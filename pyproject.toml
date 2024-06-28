@@ -2,11 +2,11 @@
 name = "pynotionclient"
 version = "0.0.9-dev2"
 description = "Python wrapper for Notion API"
-authors = ["Vetrichelvan <pythonhub.py@gmail.com>"]
+authors = ["Vetrichelvan <pythonhubdev@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-keywords = ["notion", "api", "wrapper"]
-packages = [{ include = "pynotionclient", from = "src" }]
+keywords = ["notion", "api", "wrapper", "pynotion", "notion-sdk", "notion-client"]
+packages = [{ include = "pynotionclient"}]
 repository = "https://github.com/quantivio/PyNotion"
 homepage = "https://github.com/quantivio/PyNotion"
 classifiers = [
@@ -66,7 +66,7 @@ split-on-trailing-comma = true
 [tool.isort]
 profile = "black"
 multi_line_output = 3
-src_paths = ["src"]
+src_paths = ["pynotionclient"]
 line_length = 120
 include_trailing_comma = true
 force_grid_wrap = 0

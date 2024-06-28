@@ -22,8 +22,8 @@ class ContentConfiguration(pydantic.BaseModel):
     plain_text: str
     href: Any = None
 
-    @field_validator("type")
     @classmethod
+    @field_validator("type")
     def validate_type(cls, content_type: str):  # type: ignore
         if content_type not in ["text", "mention", "equation"]:
             raise ValueError("Content type must be text, mention, or equation")

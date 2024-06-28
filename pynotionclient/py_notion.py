@@ -35,8 +35,8 @@ class PyNotion:
 
     def __initialize_modules(self) -> None:
         # Initialize all the classes that correspond to different modules with secret token
-        self.database = NotionDatabase(token=self.token)
-        self.page = NotionPage(token=self.token)
-        self.block = NotionBlock(token=self.token)
-        self.user = NotionUser(token=self.token)
-        self.comment = NotionComment(token=self.token)
+        self.database = NotionDatabase(token=self.token)  # type: ignore
+        self.page = NotionPage(token=self.token)  # type: ignore
+        self.block = NotionBlock(token=self.token)  # type: ignore
+        self.user = NotionUser(token=self.token)  # type: ignore
+        self.comment = NotionComment(token=self.token)  # type: ignore

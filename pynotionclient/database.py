@@ -54,7 +54,7 @@ class NotionDatabase:
                 timeout=60,
             )
             json_data = response.json()
-            properties: dict[str, Any] | None = None
+            properties: dict[str, Any] = {}
             if json_data is not None and len(json_data["results"][0]["properties"]) > 0:
                 properties = json_data["results"][0]["properties"]
             dynamic_properties_schema = generate_dynamic_properties_schema(properties)
@@ -99,7 +99,7 @@ class NotionDatabase:
                 timeout=60,
             )
             json_data = response.json()
-            properties: dict[str, Any] | None = None
+            properties: dict[str, Any] = {}
             if json_data and json_data["properties"]:
                 properties = json_data["properties"]
             generate_dynamic_property_response_schema = generate_dynamic_property_create_response_schema(properties)

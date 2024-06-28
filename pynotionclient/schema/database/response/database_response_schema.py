@@ -34,23 +34,23 @@ def generate_dynamic_properties_schema(properties_data: dict[str, Any]) -> Any:
     for key, value in properties_data.items():
         defaults = DefaultSettingsSchema(alias=key, title=key)
         if value["type"] == "select":
-            properties_schema[key] = (SelectSchema, defaults.model_dump())
+            properties_schema[key] = (SelectSchema, defaults.model_dump())  # type: ignore
         elif value["type"] == "number":
-            properties_schema[key] = (NumberSchema, defaults.model_dump())
+            properties_schema[key] = (NumberSchema, defaults.model_dump())  # type: ignore
         elif value["type"] == "people":
-            properties_schema[key] = (PersonSchema, defaults.model_dump())
+            properties_schema[key] = (PersonSchema, defaults.model_dump())  # type: ignore
         elif value["type"] == "checkbox":
-            properties_schema[key] = (CheckboxSchema, defaults.model_dump())
+            properties_schema[key] = (CheckboxSchema, defaults.model_dump())  # type: ignore
         elif value["type"] == "multi_select":
-            properties_schema[key] = (MultiSelectSchema, defaults.model_dump())
+            properties_schema[key] = (MultiSelectSchema, defaults.model_dump())  # type: ignore
         elif value["type"] == "status":
-            properties_schema[key] = (StatusSchema, defaults.model_dump())
+            properties_schema[key] = (StatusSchema, defaults.model_dump())  # type: ignore
         elif value["type"] == "date":
-            properties_schema[key] = (DateSchema, defaults.model_dump())
+            properties_schema[key] = (DateSchema, defaults.model_dump())  # type: ignore
         elif value["type"] == "title":
-            properties_schema[key] = (TitleSchema, defaults.model_dump())
+            properties_schema[key] = (TitleSchema, defaults.model_dump())  # type: ignore
         elif value["type"] == "rich_text":
-            properties_schema[key] = (RichTextSchema, defaults.model_dump())
+            properties_schema[key] = (RichTextSchema, defaults.model_dump())  # type: ignore
         else:
             raise ValueError(f"Unknown type: {value['type']}")
 

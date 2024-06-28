@@ -27,4 +27,4 @@ jobs:
         poetry install
     - name: Lint with pylint
       run: |
-        poetry run pylint src
+        poetry run pylint pynotionclient

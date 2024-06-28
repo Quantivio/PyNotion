@@ -66,4 +66,4 @@ repos:
     types: [python]
     pass_filenames: false
     args:
-    - "src"
+    - "pynotionclient"
