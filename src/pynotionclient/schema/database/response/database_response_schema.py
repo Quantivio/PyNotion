@@ -1,6 +1,7 @@
 from typing import Any
 
 import pydantic
+
 from pynotionclient.schema.database.response.check_box_schema import CheckboxSchema
 from pynotionclient.schema.database.response.date_schema import DateSchema
 from pynotionclient.schema.database.response.multi_select_schema import (

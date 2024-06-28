@@ -2,6 +2,7 @@ from typing import Any, Optional
 
 import pydantic
 from pydantic import Field
+
 from pynotionclient.schema.database.response.date_filter_schema import DateFilter
 from pynotionclient.schema.database.response.number_filter_schema import NumberFilter
 from pynotionclient.schema.database.response.other_filters_schema import (

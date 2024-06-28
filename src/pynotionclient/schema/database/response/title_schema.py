@@ -1,4 +1,5 @@
 import pydantic
+
 from pynotionclient.schema.database.response.content_schema import ContentSchema
 
 

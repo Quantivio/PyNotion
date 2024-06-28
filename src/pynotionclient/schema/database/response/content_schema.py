@@ -1,6 +1,7 @@
 from typing import Any, Optional
 
 import pydantic
+
 from pynotionclient.schema.database.annotations_schema_config import (
     AnnotationsSchemaConfig,
 )

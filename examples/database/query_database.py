@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from examples.config import base_config
+
 from pynotionclient import PyNotion
 from pynotionclient.schema.database import (
     Filter,

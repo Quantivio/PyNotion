@@ -1,6 +1,8 @@
 from typing import Any
 
 import requests
+from requests import ConnectTimeout, ReadTimeout, Response, Timeout
+
 from pynotionclient.config import Constants, Urls
 from pynotionclient.schema.common.header_schema import default_header_schema
 from pynotionclient.schema.database import (
@@ -20,7 +22,6 @@ from pynotionclient.schema.database.response.database_response_schema import (
     generate_dynamic_result_schema,
 )
 from pynotionclient.utils import logger
-from requests import ConnectTimeout, ReadTimeout, Response, Timeout
 
 
 class NotionDatabase:

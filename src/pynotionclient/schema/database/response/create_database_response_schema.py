@@ -4,6 +4,7 @@ from typing import Any, Optional
 
 import pydantic
 from pydantic import BaseModel
+
 from pynotionclient.schema.database.request.database_property_configuration import (
     CoverConfiguration,
     IconConfiguration,

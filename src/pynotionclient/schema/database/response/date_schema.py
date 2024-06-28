@@ -1,6 +1,7 @@
 from typing import Any
 
 import pydantic
+
 from pynotionclient.schema.database.response.common_info_schema import IdTypeSchema
 
 

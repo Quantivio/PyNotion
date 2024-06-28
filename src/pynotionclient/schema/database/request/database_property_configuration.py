@@ -2,6 +2,7 @@ from typing import Any
 
 import pydantic
 from pydantic import field_validator
+
 from pynotionclient.schema.database.request.content_configuration import (
     ContentConfiguration,
 )
