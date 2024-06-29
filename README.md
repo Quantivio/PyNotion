@@ -1,7 +1,5 @@
 <img src="assets/notion.png" alt="Notion Logo" height="240" width="240" style="display: block; margin-left: auto; margin-right: auto;">
 
----
-
 # PyNotion
 
 <div style="text-align: center;">
@@ -12,7 +10,7 @@
   <a href="https://black.readthedocs.io/en/stable/"><img alt="Code Style" src="https://img.shields.io/static/v1?label=CodeStyle&message=Black&color=%3CCOLOR%3E&style=for-the-badge"></a>
   <a href="https://www.python.org/"><img alt="Static Badge" src="https://img.shields.io/badge/Python-Lang?style=for-the-badge&label=Made%20With%20%E2%9D%A4%EF%B8%8F"></a>
 </div>
-
+<br>
 <p style="text-align: center;">
   PyNotion is a simple and intuitive Python library for accessing the Notion API. With PyNotion, you can easily integrate and automate Notion tasks within your Python projects.
 </p>
