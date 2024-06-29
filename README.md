@@ -2,7 +2,7 @@
 
 ---
 
-<h1 style="font-size: 50px; text-align: center; margin: 0; padding: 0">PyNotion</h1>
+<h1 style="font-size: 64px; text-align: center; margin: 0; padding: 0">PyNotion</h1>
 
 <div style="text-align: center;">
   <a href="https://pypi.org/project/pynotionclient/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/pynotionclient?color=brightgreen&logo=pypi&style=for-the-badge"></a>
