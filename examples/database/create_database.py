@@ -81,8 +81,11 @@ create_database_payload = DatabasePropertyConfiguration(
     properties=properties,
 )
 
-response: CreateDatabaseResponseSchema = py_notion_client.database.create_database(
+response: CreateDatabaseResponseSchema | str = py_notion_client.database.create_database(
     payload=create_database_payload,
 )
 
-print(response.model_dump_json(indent=4))
+if isinstance(response, str):
+    print(response)
+else:
+    print(response.model_dump_json(indent=4))

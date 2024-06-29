@@ -18,11 +18,11 @@ rich_text_filter = RichTextFilter(contains="Game")
 property_filter = PropertyFilter(property="Name", rich_text=rich_text_filter)
 filter_object = Filter(page_size=100, filter=property_filter)
 
-response_dict_payload: NotionDatabaseResponseSchema = py_notion_client.database.query_database(
+response_dict_payload: NotionDatabaseResponseSchema | str = py_notion_client.database.query_database(
     database_id=base_config.database_id,
     payload=filter_dict,
 )
-response_filter_payload: NotionDatabaseResponseSchema = py_notion_client.database.query_database(
+response_filter_payload: NotionDatabaseResponseSchema | str = py_notion_client.database.query_database(
     database_id=base_config.database_id,
     payload=filter_object,
 )
@@ -32,9 +32,14 @@ response_filter_payload: NotionDatabaseResponseSchema = py_notion_client.databas
 # Inside the properties use the key name you gave for each table in your database to access the value.
 # For example: CustomizedSelect is the key name for the table named "CustomizedSelect" in my database.
 
-print(
-    response_dict_payload.results[0].properties.Name.json(indent=4),
-)  # Print the first result's Select property as json.
-print(
-    response_filter_payload.results[0].properties.Name.json(indent=4),
-)  # Print the first result's Select property as json.
+if isinstance(response_dict_payload, str):
+    print(response_dict_payload)
+
+if isinstance(response_dict_payload, NotionDatabaseResponseSchema):
+    print(
+        response_dict_payload.results[0].properties.Name.json(indent=4),
+    )  # Print the first result's Select property as json.
+if isinstance(response_filter_payload, NotionDatabaseResponseSchema):
+    print(
+        response_filter_payload.results[0].properties.Name.json(indent=4),
+    )  # Print the first result's Select property as json.

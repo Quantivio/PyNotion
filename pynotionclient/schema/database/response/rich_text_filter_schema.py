@@ -4,5 +4,5 @@ from pynotionclient.schema.database.response.common_filter_schema import Contain
 
 
 class RichTextFilter(ContainsFilter, EqualsFilter, EmptyFilter):
-    starts_with: Optional[str]
-    ends_with: Optional[str]
+    starts_with: Optional[str] = None
+    ends_with: Optional[str] = None
