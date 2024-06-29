@@ -2,6 +2,17 @@ name: Code Formatting and Linting
 
 on:
   push:
+    branches: ["main"]
+    paths-ignore:
+    - 'README.md'
+    - 'assets/**'
+    - '.gitignore'
+  pull_request:
+    branches: ["main"]
+    paths-ignore:
+    - 'README.md'
+    - 'assets/**'
+    - '.gitignore'
   workflow_dispatch:
 
 jobs:

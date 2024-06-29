@@ -14,8 +14,16 @@ name: "CodeQL"
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+    - 'README.md'
+    - 'assets/**'
+    - '.gitignore'
   pull_request:
     branches: ["main"]
+    paths-ignore:
+    - 'README.md'
+    - 'assets/**'
+    - '.gitignore'
   schedule:
   - cron: '16 8 * * 4'
 
