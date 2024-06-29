@@ -3,11 +3,10 @@
 <hr>
 <h1 style="font-size: 50px; margin: 0; padding: 0">PyNotion</h1>
 
-![PyPI](https://img.shields.io/pypi/v/pynotionclient?color=brightgreen&logo=pypi&style=for-the-badge)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/pynotionclient?color=brightgreen&logo=pypi&style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/pythonhubdev/PyNotion?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/pythonhubdev/PyNotion?color=brightgreen&style=for-the-badge)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/DevzoneCommunity/PyNotion/python-app.yml?style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Quantivio/PyNotion/formtting.yaml?style=for-the-badge)
 ![Code Style](https://img.shields.io/static/v1?label=CodeStyle&message=Black&color=%3CCOLOR%3E&style=for-the-badge)
 
 PyNotion is a simple and intuitive Python library for accessing the Notion API. With PyNotion, you can easily integrate
