@@ -1,4 +1,4 @@
-<img src="assets/notion.png" alt="Notion Logo" height="240" width="240" style="display: block; margin: auto">
+<img src="assets/notion.png" alt="Notion Logo" height="240" width="240" style="display: block; margin-left: auto; margin-right: auto;">
 
 ---
 
