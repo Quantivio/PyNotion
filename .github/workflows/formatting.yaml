@@ -45,5 +45,8 @@ jobs:
     - name: Run black check
       run: poetry run black --check .
 
+    - name: Install mypy types
+      run: poetry run mypy --install-types
+
     - name: Run mypy check
       run: poetry run mypy --config-file pyproject.toml .
