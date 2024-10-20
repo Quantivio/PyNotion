@@ -1,60 +1,51 @@
 name: Code Formatting and Linting
 
 on:
-  push:
-    branches: ["main"]
-    paths-ignore:
-    - 'README.md'
-    - 'assets/**'
-    - '.gitignore'
-  pull_request:
-    branches: ["main"]
-    paths-ignore:
-    - 'README.md'
-    - 'assets/**'
-    - '.gitignore'
-  workflow_dispatch:
+    push:
+    workflow_dispatch:
+
 
 jobs:
-  formatting:
-    runs-on: ubuntu-latest
-    container: catthehacker/ubuntu:act-latest
-    steps:
-    - name: Check out repository
-      uses: actions/checkout@v4
+    formatting:
+        runs-on: ubuntu-latest
+        container: catthehacker/ubuntu:act-latest
+        strategy:
+            matrix:
+                python-version: [ "3.12" ]
+        steps:
+            -   name: Check out repository
+                uses: actions/checkout@v4
 
-    - name: Set up python
-      id: setup-python
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.12"
+            -   name: Install build dependencies
+                run: |
+                    sudo apt-get update
+                    sudo apt-get install -y build-essential libgmp-dev
 
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        virtualenvs-create: true
-        virtualenvs-in-project: true
-        installer-parallel: true
+            -   name: Install uv
+                uses: astral-sh/setup-uv@v2
 
-    - name: Load cached venv
-      id: cached-poetry-dependencies
-      uses: actions/cache@v3
-      with:
-        path: .venv
-        key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/pyproject.toml') }}-${{ hashFiles('**/poetry.lock') }}
+            -   name: Set up Python ${{ matrix.python-version }}
+                run: uv python install ${{ matrix.python-version }}
 
-    - name: Install dependencies
-      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-      run: poetry install --no-interaction --no-root
+            -   name: Cache virtual environment
+                id: cached-poetry-dependencies
+                uses: actions/cache@v3
+                with:
+                    path: .venv
+                    key: venv-${{ runner.os }}-py${{ matrix.python-version }}-${{ hashFiles('**/pyproject.toml') }}-${{ hashFiles('**/uv.lock') }}
 
-    - name: Install project
-      run: poetry install --no-interaction
+            -   name: Install dependencies
+                if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+                run: uv sync
 
-    - name: Run ruff check
-      run: poetry run ruff check .
+            -   name: Set up Python 3.12
+                uses: actions/setup-python@v5
+                with:
+                    python-version: '3.12'
 
-    - name: Run black check
-      run: poetry run black --check .
+            -   name: 🚨 pre-commit
+                uses: pre-commit/action@v3.0.0
 
-    - name: Run mypy check
-      run: poetry run mypy --config-file pyproject.toml .
+
+            -   name: 🩺 Run linter
+                run: uv run ruff check ./src
