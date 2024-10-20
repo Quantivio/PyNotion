@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+from loguru import logger
 from py_notion.schema.database import (
 	CheckboxConfiguration,
 	ContentConfiguration,
@@ -86,6 +87,6 @@ response: CreateDatabaseResponseSchema | str = py_notion_client.database.create_
 )
 
 if isinstance(response, str):
-	print(response)
+	logger.info(response)
 else:
-	print(response.model_dump_json(indent=4))
+	logger.info(response.model_dump_json(indent=4))

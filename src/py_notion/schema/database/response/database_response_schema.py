@@ -28,7 +28,7 @@ class DefaultSettingsSchema(pydantic.BaseModel):
 	required: bool = True
 
 
-def generate_dynamic_properties_schema(properties_data: dict[str, Any]) -> Any:
+def generate_dynamic_properties_schema(properties_data: dict[str, Any]) -> Any:  # noqa: C901, ANN401
 	"""Generate a dynamic schema model based on the keys received from Notions Response."""
 	properties_schema = {}
 	for key, value in properties_data.items():
@@ -58,7 +58,7 @@ def generate_dynamic_properties_schema(properties_data: dict[str, Any]) -> Any:
 	return pydantic.create_model("PropertiesSchema", **properties_schema)  # type: ignore
 
 
-def generate_dynamic_result_schema(properties_schema: Any) -> type[ResultSchema]:
+def generate_dynamic_result_schema(properties_schema: Any) -> type[ResultSchema]:  # noqa: ANN401
 	defaults = DefaultSettingsSchema(alias="properties", title="properties")
 	return pydantic.create_model(
 		"NotionDatabaseResponseSchema",
@@ -68,7 +68,7 @@ def generate_dynamic_result_schema(properties_schema: Any) -> type[ResultSchema]
 
 
 def generate_dynamic_notion_response_schema(
-	result_schema: Any,
+	result_schema: Any,  # noqa: ANN401
 ) -> type[NotionDatabaseResponseSchema]:
 	defaults = DefaultSettingsSchema(alias="results", title="results")
 	return pydantic.create_model(

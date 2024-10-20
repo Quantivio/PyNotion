@@ -28,8 +28,8 @@ class NotionDatabase:
 	@staticmethod
 	def query_database(
 		database_id: str,
-		payload: dict[str, Any] | Filter,
-		return_json: bool = False,
+		payload: dict[str, Any] | Filter | None = None,
+		return_json: bool = False,  # noqa: FBT001, FBT002
 	) -> NotionDatabaseResponseSchema | str:
 		logger.info(
 			f"Querying database {database_id}",
@@ -42,7 +42,7 @@ class NotionDatabase:
 				__payload = payload.model_dump(exclude_none=True, by_alias=True)
 			response: Response = requests.post(
 				url=Urls.form_db_get_url(database_id),
-				# json=__payload,
+				json=__payload,
 				headers=default_header_schema.model_dump(by_alias=True),
 				timeout=60,
 			)
@@ -68,7 +68,7 @@ class NotionDatabase:
 	@staticmethod
 	def create_database(
 		payload: dict[str, Any] | DatabasePropertyConfiguration,
-		return_json: bool = False,
+		return_json: bool = False,  # noqa: FBT001, FBT002
 	) -> CreateDatabaseResponseSchema | str:
 		logger.info(
 			"Creating database",

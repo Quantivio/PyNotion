@@ -6,15 +6,15 @@ import pydantic
 from pydantic import BaseModel
 
 from src.py_notion.schema.database.request.database_property_configuration import (
-	CoverConfiguration,
-	IconConfiguration,
-	ParentConfiguration,
+	CoverConfiguration,  # noqa: TCH001
+	IconConfiguration,  # noqa: TCH001
+	ParentConfiguration,  # noqa: TCH001
 )
-from src.py_notion.schema.database.request.number_configuration import NumberFormats
+from src.py_notion.schema.database.request.number_configuration import NumberFormats  # noqa: TCH001
 from src.py_notion.schema.database.response.database_response_schema import DefaultSettingsSchema
 from src.py_notion.schema.database.response.select_schema import InternalSelectSchema
 
-from .content_schema import ContentSchema
+from .content_schema import ContentSchema  # noqa: TCH001
 
 
 class CreatedByResponseSchema(BaseModel):
@@ -98,7 +98,7 @@ def generate_dynamic_property_create_response_schema(properties: dict[str, Any])
 
 
 def generate_dynamic_create_notion_response_schema(
-	result_schema: Any,
+	result_schema: Any,  # noqa: ANN401
 ) -> type[CreateDatabaseResponseSchema]:
 	defaults = DefaultSettingsSchema(alias="results", title="results")
 	return pydantic.create_model(

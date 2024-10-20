@@ -21,11 +21,9 @@ filter_object = Filter(page_size=100, filter=property_filter)
 
 response_dict_payload: NotionDatabaseResponseSchema | str = py_notion_client.database.query_database(
 	database_id=base_config.database_id,
-	payload=filter_dict,
 )
 response_filter_payload: NotionDatabaseResponseSchema | str = py_notion_client.database.query_database(
 	database_id=base_config.database_id,
-	payload=filter_object,
 )
 
 # Since we are using pydantic the result can be used either as on object or as a dictionary or json.

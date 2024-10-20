@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Any
 
 import pydantic
 from pydantic import field_validator
@@ -26,4 +26,5 @@ class ContentConfiguration(pydantic.BaseModel):
 	@field_validator("type")
 	def validate_type(cls, content_type: str):  # type: ignore
 		if content_type not in ["text", "mention", "equation"]:
-			raise ValueError("Content type must be text, mention, or equation")
+			value_error: str = "Content type must be text, mention, or equation"
+			raise ValueError(value_error)

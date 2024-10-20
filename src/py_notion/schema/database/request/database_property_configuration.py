@@ -17,7 +17,7 @@ class IconConfiguration(pydantic.BaseModel):
 
 	@classmethod
 	@field_validator("type")
-	def validate_emoji_type(cls, emoji_type):  # type: ignore
+	def validate_emoji_type(cls, emoji_type):  # type: ignore  # noqa: ANN001
 		if emoji_type != "emoji":
 			value_error = ValueError("Emoji type must be emoji")
 			raise ValueError(value_error)
