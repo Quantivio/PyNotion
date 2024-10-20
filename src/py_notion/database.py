@@ -1,6 +1,6 @@
 from typing import Any
 
-import requests
+import requests  # type: ignore
 from loguru import logger
 from requests import ConnectTimeout, ReadTimeout, Response, Timeout
 
