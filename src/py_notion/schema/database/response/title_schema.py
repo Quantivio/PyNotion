@@ -1,5 +1,6 @@
 import pydantic
-from py_notion.schema.database import ContentSchema
+
+from .content_schema import ContentSchema
 
 
 class TitleSchema(pydantic.BaseModel):

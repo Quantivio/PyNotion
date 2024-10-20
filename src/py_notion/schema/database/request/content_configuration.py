@@ -10,15 +10,15 @@ from src.py_notion.schema.database.mention_schema_config import UPDMentionSchema
 
 class TextConfiguration(pydantic.BaseModel):
 	content: str
-	link: Optional[str] = None
+	link: str | None = None
 
 
 class ContentConfiguration(pydantic.BaseModel):
-	type: Optional[str] = None
-	text: Optional[TextConfiguration] = None
-	mention: Optional[UPDMentionSchemaConfigConfigConfig] = None
-	annotations: Optional[AnnotationsSchemaConfig] = None
-	equation: Optional[EquationSchemaConfig] = None
+	type: str | None = None
+	text: TextConfiguration | None = None
+	mention: UPDMentionSchemaConfigConfigConfig | None = None
+	annotations: AnnotationsSchemaConfig | None = None
+	equation: EquationSchemaConfig | None = None
 	plain_text: str
 	href: Any = None
 

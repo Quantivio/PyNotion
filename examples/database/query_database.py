@@ -1,4 +1,3 @@
-
 from dotenv import load_dotenv
 from loguru import logger
 from py_notion import PyNotion

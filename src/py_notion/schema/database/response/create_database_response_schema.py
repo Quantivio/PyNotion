@@ -1,9 +1,8 @@
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 import pydantic
-from py_notion.schema.database import ContentSchema
 from pydantic import BaseModel
 
 from src.py_notion.schema.database.request.database_property_configuration import (
@@ -14,6 +13,8 @@ from src.py_notion.schema.database.request.database_property_configuration impor
 from src.py_notion.schema.database.request.number_configuration import NumberFormats
 from src.py_notion.schema.database.response.database_response_schema import DefaultSettingsSchema
 from src.py_notion.schema.database.response.select_schema import InternalSelectSchema
+
+from .content_schema import ContentSchema
 
 
 class CreatedByResponseSchema(BaseModel):
@@ -49,9 +50,9 @@ class CreateDatabaseResponseSchema(BaseModel):
 
 
 class CommonCreateResponseSchema(BaseModel):
-	id: Optional[str]
-	name: Optional[str]
-	type: Optional[str]
+	id: str | None
+	name: str | None
+	type: str | None
 
 
 def generate_dynamic_property_create_response_schema(properties: dict[str, Any]) -> type[CommonCreateResponseSchema]:

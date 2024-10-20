@@ -1,6 +1,5 @@
-from py_notion.schema.database import ContentSchema
-
 from .common_info_schema import IdTypeSchema
+from .content_schema import ContentSchema
 
 
 class RichTextSchema(IdTypeSchema):

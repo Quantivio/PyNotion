@@ -10,7 +10,7 @@ from .user import NotionUser
 class PyNotion:
 	def __init__(self, token: str):
 		# Initialize PyNotion client with SECRET_TOKEN or API_TOKEN from Notion. Default value is None
-		self.token: str | None = token
+		self.token: str = token
 		if self.token is None or len(self.token) == 0:
 			# Raise error if token is not provided
 			logger.error(
