@@ -1,7 +1,8 @@
 name: Code Formatting and Linting
 
 on:
-    push:
+    pull_request:
+        branches: [master, main]
     workflow_dispatch:
 
 
