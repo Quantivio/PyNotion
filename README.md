@@ -6,7 +6,6 @@
   <a href="https://pypi.org/project/pynotionclient/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/pynotionclient?color=brightgreen&logo=pypi&style=for-the-badge"></a>
   <a href="https://github.com/pythonhubdev/PyNotion/commits/main"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/pythonhubdev/PyNotion?style=for-the-badge"></a>
   <a href="https://github.com/pythonhubdev/PyNotion/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/pythonhubdev/PyNotion?color=brightgreen&style=for-the-badge"></a>
-  <a href="https://black.readthedocs.io/en/stable/"><img alt="Code Style" src="https://img.shields.io/static/v1?label=CodeStyle&message=Black&color=%3CCOLOR%3E&style=for-the-badge"></a>
   <a href="https://www.python.org/"><img alt="Static Badge" src="https://img.shields.io/badge/Python-Lang?style=for-the-badge&label=Made%20With%20%E2%9D%A4%EF%B8%8F"></a>
 </div>
 <br>
